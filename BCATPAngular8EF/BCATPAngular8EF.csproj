@@ -1,0 +1,282 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    <DefaultItemExcludes>$(DefaultItemExcludes);**/node_modules/**;node_modules/**</DefaultItemExcludes>
+    <DefaultItemExcludes>$(DefaultItemExcludes);**/wwwroot/**;wwwroot/**</DefaultItemExcludes>
+    <DefaultItemExcludes>$(DefaultItemExcludes);**/dist/**;dist/**</DefaultItemExcludes>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <!--  <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)wwwroot\**</DefaultItemExcludes>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)ClientApp\dist\**</DefaultItemExcludes>-->
+  <!--   Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+    <UserSecretsId>87d3bd9b-f91b-41eb-a929-e7277f888029</UserSecretsId>
+    <AssemblyName>BCATPAngular8EF</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants></DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NHibernate" Version="5.3.5" />
+    <PackageReference Include="Sharpbrake.Client" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\dist\**" />
+    <Compile Remove="ClientApp\node_modules\**" />
+    <Compile Remove="ClientApp\src\app\add-dewline\**" />
+    <Compile Remove="ClientApp\src\app\add-navy\**" />
+    <Compile Remove="ClientApp\src\app\common-component\**" />
+    <Compile Remove="ClientApp\src\app\counter\**" />
+    <Compile Remove="ClientApp\src\app\dialog-exemple\**" />
+    <Compile Remove="ClientApp\src\app\display-map\**" />
+    <Compile Remove="ClientApp\src\app\fetch-bcatp-map\**" />
+    <Compile Remove="ClientApp\src\app\fetch-dewline\**" />
+    <Compile Remove="ClientApp\src\app\fetch-midcanada\**" />
+    <Compile Remove="ClientApp\src\app\fetch-navy-map\**" />
+    <Compile Remove="ClientApp\src\app\fetch-navy\**" />
+    <Compile Remove="ClientApp\src\app\fetch-pinetree\**" />
+    <Compile Remove="ClientApp\src\app\footer\**" />
+    <Compile Remove="ClientApp\src\app\router-link\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\dist\**" />
+    <Content Remove="ClientApp\node_modules\**" />
+    <Content Remove="ClientApp\src\app\add-dewline\**" />
+    <Content Remove="ClientApp\src\app\add-navy\**" />
+    <Content Remove="ClientApp\src\app\common-component\**" />
+    <Content Remove="ClientApp\src\app\counter\**" />
+    <Content Remove="ClientApp\src\app\dialog-exemple\**" />
+    <Content Remove="ClientApp\src\app\display-map\**" />
+    <Content Remove="ClientApp\src\app\fetch-bcatp-map\**" />
+    <Content Remove="ClientApp\src\app\fetch-dewline\**" />
+    <Content Remove="ClientApp\src\app\fetch-midcanada\**" />
+    <Content Remove="ClientApp\src\app\fetch-navy-map\**" />
+    <Content Remove="ClientApp\src\app\fetch-navy\**" />
+    <Content Remove="ClientApp\src\app\fetch-pinetree\**" />
+    <Content Remove="ClientApp\src\app\footer\**" />
+    <Content Remove="ClientApp\src\app\router-link\**" />
+    <EmbeddedResource Remove="ClientApp\dist\**" />
+    <EmbeddedResource Remove="ClientApp\node_modules\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\add-dewline\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\add-navy\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\common-component\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\counter\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\dialog-exemple\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\display-map\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\fetch-bcatp-map\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\fetch-dewline\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\fetch-midcanada\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\fetch-navy-map\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\fetch-navy\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\fetch-pinetree\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\footer\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\router-link\**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\dist\**" />
+    <None Remove="ClientApp\node_modules\**" />
+    <None Remove="ClientApp\src\app\add-dewline\**" />
+    <None Remove="ClientApp\src\app\add-navy\**" />
+    <None Remove="ClientApp\src\app\common-component\**" />
+    <None Remove="ClientApp\src\app\counter\**" />
+    <None Remove="ClientApp\src\app\dialog-exemple\**" />
+    <None Remove="ClientApp\src\app\display-map\**" />
+    <None Remove="ClientApp\src\app\fetch-bcatp-map\**" />
+    <None Remove="ClientApp\src\app\fetch-dewline\**" />
+    <None Remove="ClientApp\src\app\fetch-midcanada\**" />
+    <None Remove="ClientApp\src\app\fetch-navy-map\**" />
+    <None Remove="ClientApp\src\app\fetch-navy\**" />
+    <None Remove="ClientApp\src\app\fetch-pinetree\**" />
+    <None Remove="ClientApp\src\app\footer\**" />
+    <None Remove="ClientApp\src\app\router-link\**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\dist\**" />
+    <TypeScriptCompile Remove="ClientApp\node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\BCATPsController.cs" />
+    <Compile Remove="Controllers\DewlineController.cs" />
+    <Compile Remove="Controllers\MidCanadaController.cs" />
+    <Compile Remove="Controllers\NavyController.cs" />
+    <Compile Remove="Controllers\PinetreeController.cs" />
+    <Compile Remove="Controllers\SampleDataController.cs" />
+    <Compile Remove="DataAccess\DewlineDataAccessLayer.cs" />
+    <Compile Remove="DataAccess\MidCanadaDataAccessLayer.cs" />
+    <Compile Remove="DataAccess\NavyDataAccessLayer.cs" />
+    <Compile Remove="DataAccess\PinetreeDataAccessLayer.cs" />
+    <Compile Remove="Interfaces\IDewline.cs" />
+    <Compile Remove="Interfaces\IMidCanada.cs" />
+    <Compile Remove="Interfaces\INavy.cs" />
+    <Compile Remove="Interfaces\IPinetree.cs" />
+    <Compile Remove="Models\DewlineDBContext.cs" />
+    <Compile Remove="Models\MidCanadaDBContext.cs" />
+    <Compile Remove="Models\NavyDBContext.cs" />
+    <Compile Remove="Models\PinetreeDBContext.cs" />
+    <Compile Remove="Models\TblDewline.cs" />
+    <Compile Remove="Models\TblMidCanada.cs" />
+    <Compile Remove="Models\TblNavy.cs" />
+    <Compile Remove="Models\TblPinetree.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="libman.json" />
+    <Content Remove="web.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\dist\3rdpartylicenses.txt" />
+    <None Remove="ClientApp\dist\assets\img\CanadianFlag.png" />
+    <None Remove="ClientApp\dist\assets\img\CanadianForcesEnsign.png" />
+    <None Remove="ClientApp\dist\index.html" />
+    <None Remove="ClientApp\dist\main-es2015.d151c9164380431abe20.js" />
+    <None Remove="ClientApp\dist\main-es5.d151c9164380431abe20.js" />
+    <None Remove="ClientApp\dist\polyfills-es2015.99b133bb14ba292cc1d3.js" />
+    <None Remove="ClientApp\dist\polyfills-es5.a01def0ff66ab531295c.js" />
+    <None Remove="ClientApp\dist\runtime-es2015.69737fd31e4241d4961d.js" />
+    <None Remove="ClientApp\dist\runtime-es5.69737fd31e4241d4961d.js" />
+    <None Remove="ClientApp\dist\styles.eee70b2a93e156fddb47.css" />
+    <None Remove="ClientApp\src\app.js" />
+    <None Remove="ClientApp\src\app\add-edit\common.component.html" />
+    <None Remove="ClientApp\src\app\add-dewline\add-dewline.component.css" />
+    <None Remove="ClientApp\src\app\add-dewline\add-dewline.component.html" />
+    <None Remove="ClientApp\src\app\add-dewline\add-dewline.component.spec.ts" />
+    <None Remove="ClientApp\src\app\add-dewline\add-dewline.component.ts" />
+    <None Remove="ClientApp\src\app\add-navy\add-navy.component.css" />
+    <None Remove="ClientApp\src\app\add-navy\add-navy.component.html" />
+    <None Remove="ClientApp\src\app\add-navy\add-navy.component.spec.ts" />
+    <None Remove="ClientApp\src\app\add-navy\add-navy.component.ts" />
+    <None Remove="ClientApp\src\app\common-component\common.component.css" />
+    <None Remove="ClientApp\src\app\common-component\common.component.html" />
+    <None Remove="ClientApp\src\app\common-component\common.component.spec.ts" />
+    <None Remove="ClientApp\src\app\common-component\common.component.ts" />
+    <None Remove="ClientApp\src\app\counter\counter.component.html" />
+    <None Remove="ClientApp\src\app\counter\counter.component.spec.ts" />
+    <None Remove="ClientApp\src\app\counter\counter.component.ts" />
+    <None Remove="ClientApp\src\app\dialog-exemple\dialog-exemple.component.css" />
+    <None Remove="ClientApp\src\app\dialog-exemple\dialog-exemple.component.html" />
+    <None Remove="ClientApp\src\app\dialog-exemple\dialog-exemple.component.spec.ts" />
+    <None Remove="ClientApp\src\app\dialog-exemple\dialog-exemple.component.ts" />
+    <None Remove="ClientApp\src\app\display-map\map.component.css" />
+    <None Remove="ClientApp\src\app\display-map\map.component.html" />
+    <None Remove="ClientApp\src\app\display-map\map.component.spec.ts" />
+    <None Remove="ClientApp\src\app\display-map\map.component.ts" />
+    <None Remove="ClientApp\src\app\fetch-bcatp-map\fetch-bcatp-map.component.css" />
+    <None Remove="ClientApp\src\app\fetch-bcatp-map\fetch-bcatp-map.component.html" />
+    <None Remove="ClientApp\src\app\fetch-bcatp-map\fetch-bcatp-map.component.spec.ts" />
+    <None Remove="ClientApp\src\app\fetch-bcatp-map\fetch-bcatp-map.component.ts" />
+    <None Remove="ClientApp\src\app\fetch-dewline\fetch-dewline.component.css" />
+    <None Remove="ClientApp\src\app\fetch-dewline\fetch-dewline.component.html" />
+    <None Remove="ClientApp\src\app\fetch-dewline\fetch-dewline.component.spec.ts" />
+    <None Remove="ClientApp\src\app\fetch-dewline\fetch-dewline.component.ts" />
+    <None Remove="ClientApp\src\app\fetch-midcanada\fetch-midcanada.component.css" />
+    <None Remove="ClientApp\src\app\fetch-midcanada\fetch-midcanada.component.html" />
+    <None Remove="ClientApp\src\app\fetch-midcanada\fetch-midcanada.component.spec.ts" />
+    <None Remove="ClientApp\src\app\fetch-midcanada\fetch-midcanada.component.ts" />
+    <None Remove="ClientApp\src\app\fetch-navy-map\fetch-navy-map.component.css" />
+    <None Remove="ClientApp\src\app\fetch-navy-map\fetch-navy-map.component.html" />
+    <None Remove="ClientApp\src\app\fetch-navy-map\fetch-navy-map.component.spec.ts" />
+    <None Remove="ClientApp\src\app\fetch-navy-map\fetch-navy-map.component.ts" />
+    <None Remove="ClientApp\src\app\fetch-navy\fetch-navy.component.css" />
+    <None Remove="ClientApp\src\app\fetch-navy\fetch-navy.component.html" />
+    <None Remove="ClientApp\src\app\fetch-navy\fetch-navy.component.spec.ts" />
+    <None Remove="ClientApp\src\app\fetch-navy\fetch-navy.component.ts" />
+    <None Remove="ClientApp\src\app\fetch-pinetree\fetch-pinetree.component.css" />
+    <None Remove="ClientApp\src\app\fetch-pinetree\fetch-pinetree.component.html" />
+    <None Remove="ClientApp\src\app\fetch-pinetree\fetch-pinetree.component.spec.ts" />
+    <None Remove="ClientApp\src\app\fetch-pinetree\fetch-pinetree.component.ts" />
+    <None Remove="ClientApp\src\app\footer\footer.component.css" />
+    <None Remove="ClientApp\src\app\footer\footer.component.html" />
+    <None Remove="ClientApp\src\app\footer\footer.component.spec.ts" />
+    <None Remove="ClientApp\src\app\footer\footer.component.ts" />
+    <None Remove="ClientApp\src\app\router-link\router-link.component.css" />
+    <None Remove="ClientApp\src\app\router-link\router-link.component.html" />
+    <None Remove="ClientApp\src\app\router-link\router-link.component.spec.ts" />
+    <None Remove="ClientApp\src\app\router-link\router-link.component.ts" />
+    <None Remove="ClientApp\src\app\services\dewline.service.spec.ts" />
+    <None Remove="ClientApp\src\app\services\dewline.service.ts" />
+    <None Remove="ClientApp\src\app\services\midcanada.service.spec.ts" />
+    <None Remove="ClientApp\src\app\services\midcanada.service.ts" />
+    <None Remove="ClientApp\src\app\services\navy.service.spec.ts" />
+    <None Remove="ClientApp\src\app\services\navy.service.ts" />
+    <None Remove="ClientApp\src\app\services\pinetree.service.spec.ts" />
+    <None Remove="ClientApp\src\app\services\pinetree.service.ts" />
+    <None Remove="ClientApp\src\app\state\actions\dewline.actions.ts" />
+    <None Remove="ClientApp\src\app\state\actions\midcanada.actions.ts" />
+    <None Remove="ClientApp\src\app\state\actions\navy.actions.ts" />
+    <None Remove="ClientApp\src\app\state\actions\pinetree.actions.ts" />
+    <None Remove="ClientApp\src\app\state\effects\dewline.effect.ts" />
+    <None Remove="ClientApp\src\app\state\effects\midcanada.effect.ts" />
+    <None Remove="ClientApp\src\app\state\effects\navy.effect.ts" />
+    <None Remove="ClientApp\src\app\state\effects\pinetree.effect.ts" />
+    <None Remove="ClientApp\src\models\dewline.ts" />
+    <None Remove="ClientApp\src\models\midcanada.ts" />
+    <None Remove="ClientApp\src\models\navy.ts" />
+    <None Remove="ClientApp\src\models\pinetree.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\airforce.reducer.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\army.reducer.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\bcatp.reducer.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\defunct.reducer.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\dewline.reducer.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\midcanada.reducer.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\navy.reducer.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\pinetree.reducer.ts" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

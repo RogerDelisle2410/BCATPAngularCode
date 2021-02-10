@@ -1,0 +1,40 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<div class="row" style="border-style:solid; border-color:lightgray;">
+
+  <div class="col-lg-3" >
+    <img class="img-responsive" src="assets/img/CanadianFlag.png" style="float:right" />
+  </div>
+
+  <div class="col-lg-6">
+    <a href='https://en.wikipedia.org/wiki/History_of_the_Canadian_Army' target="_blank">
+      <h3 style=" text-align: center; padding-top:25px;">Canadian Military Past and Present</h3>
+    </a>
+  </div>
+
+  <div class="col-lg-3" >
+    <img class="img-responsive" src="assets/img/CanadianForcesEnsign.png" style="float:left" />
+  </div>
+</div>
+
+
+<div class="row">
+
+  <nav style="text-align:center; align-content:center;" class='container  navbar navbar-expand-sm  navbar-toggleable-sm navbar-light   center'>
+    <div class=" col-lg-1"></div>      
+    <div class=" col-lg-10">
+      <button type="button"  style="width:100px" [routerLink]='["/fetch-data", "Bcatp","bcatp"]'       routerLinkActive="active" data-toggle="tooltip" title="British Commonwealth Air Training Plan">Bcatp</button>
+      <button type="button"  style="width:100px" [routerLink]='["/fetch-navy", "Navy","navy"]' routerLinkActive="active" data-toggle="tooltip" title="Royal Canadian Navy">Navy</button>
+      <button type="button"  style="width:100px" [routerLink]="['/fetch-dewline', 'Dewline','dewline']" routerLinkActive="active" data-toggle="tooltip" title="Distant Early Warning Line">DewLine</button>
+      <button type="button"  style="width:100px" [routerLink]="['/fetch-pinetree', 'Pinetree','pinetree']" routerLinkActive="active" data-toggle="tooltip" title="Pinetree Line">Pinetree</button>
+      <button type="button"  style="width:100px" [routerLink]="['/fetch-airforce', 'Airforce','airforce']" routerLinkActive="active" data-toggle="tooltip" title="Royal Canadian Air Force">Air Force</button>
+      <button type="button"  style="width:100px" [routerLink]="['/fetch-defunct', 'Defunct','defunct']" routerLinkActive="active" data-toggle="tooltip" title="Defunct Canadian military bases">Defunct</button>
+      <button type="button"  style="width:100px" [routerLink]="['/fetch-midcanada', 'MidCanada','midcanada']" routerLinkActive="active" data-toggle="tooltip" title="Mid-Canada Line">Mid CDN</button>
+      <button type="button"  style="width:100px" [routerLink]="['/fetch-army', 'Army','army']" routerLinkActive="active" data-toggle="tooltip" title="Canadian Forces Base">Army</button>
+    </div>
+    <div class=" col-lg-1"></div>
+  </nav>
+
+</div>
+<!--style="border-style:solid; border-color:black;"-->

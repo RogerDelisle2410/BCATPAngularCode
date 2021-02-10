@@ -1,0 +1,37 @@
+ 
+
+
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+table {
+  width: 100%; 
+  table-layout: fixed;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  /*text-overflow: ellipsis;*/
+  line-height:10px;
+} 
+
+tr {
+  text-align-last: left;
+}
+
+/*th {
+  height: 10px;
+}*/
+
+td {
+  height: 7px;
+  font-size: 14px;
+  font-family:Roboto;
+}
+
+a {
+  height: 7px;
+  font-size: 14px;
+  font-family: Roboto;
+}
+ 

@@ -1,0 +1,68 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<form [formGroup]="FormName" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+  <div class="container">
+
+    <div class=row>
+      <div class="col-lg-4" style="align-content:center;border:solid; border-width:1px; border-color:black;">
+        <div class="form-group row">
+          <label class=" control-label col-md-12">Name</label>
+          <div class="col-md-10">
+            <input class="form-control" placeholder="name" type="text" id="name" formControlName="name">
+          </div>
+          <span class="text-danger" *ngIf="name?.invalid && formDir.submitted">
+            Name is required.
+          </span>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-md-12" for="Latitude">Latitude</label>
+          <div class="col-md-10">
+            <input class="form-control" placeholder="latitude" type="number" id="latitude" formControlName="latitude">
+          </div>
+          <span class="text-danger" *ngIf="latitude.invalid && formDir.submitted">
+            Latitude is required
+          </span>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-md-12" for="Longitude">Longitude</label>
+          <div class="col-md-10">
+            <input class="form-control" placeholder="longitude" type="number" id="longitude" formControlName="longitude">
+          </div>
+          <span class="text-danger" *ngIf="longitude.invalid && formDir.submitted">
+            Longitude is required
+          </span>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-md-12" for="Comment">Comment</label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" formControlName="comment">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-md-12" for="Info">Wikipedia</label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" formControlName="wiki">
+          </div>
+        </div>
+      </div>     
+
+      <div class="col-lg-8">
+        <!--<ng-template #mymodal let-modal>-->
+          <agm-map [latitude]='lat3' [longitude]='lng3' [zoom]="zoom" [mapTypeId]='mapType' [fullscreenControl]='true' [mapTypeControl]='true'>
+            <agm-marker [latitude]='lat3' [longitude]='lng3' [markerDraggable]="true"
+                        (dragEnd)="markerDragEnd($event)"></agm-marker>
+          </agm-map>
+        <!--</ng-template>-->
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <footer style="float: right; display: block;  ">
+    <button type="submit" class=" btn btn-primary" >Save</button> <!--//Roger for Azure disabled-->
+    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </footer>
+
+</form>
