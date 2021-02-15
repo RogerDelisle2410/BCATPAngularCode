@@ -19,12 +19,6 @@
       "dom"
     ]
   },
-  "exclude": [
-    "node_modules",
-    "wwwroot",
-    "Scripts",
-    "wwwroot/lib"
-  ],
   "angularCompilerOptions": {
     "enableIvy": true,
     "allowEmptyCodegenFiles": true
