@@ -151,17 +151,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\dist\3rdpartylicenses.txt" />
-    <None Remove="ClientApp\dist\assets\img\CanadianFlag.png" />
-    <None Remove="ClientApp\dist\assets\img\CanadianForcesEnsign.png" />
-    <None Remove="ClientApp\dist\index.html" />
-    <None Remove="ClientApp\dist\main-es2015.d151c9164380431abe20.js" />
-    <None Remove="ClientApp\dist\main-es5.d151c9164380431abe20.js" />
-    <None Remove="ClientApp\dist\polyfills-es2015.99b133bb14ba292cc1d3.js" />
-    <None Remove="ClientApp\dist\polyfills-es5.a01def0ff66ab531295c.js" />
-    <None Remove="ClientApp\dist\runtime-es2015.69737fd31e4241d4961d.js" />
-    <None Remove="ClientApp\dist\runtime-es5.69737fd31e4241d4961d.js" />
-    <None Remove="ClientApp\dist\styles.eee70b2a93e156fddb47.css" />
+    <None Remove="ClientApp\dist\main-es2015.ec92b7c4f26185dc266e.js" />
+    <None Remove="ClientApp\dist\main-es2015.ec92b7c4f26185dc266e.js.LICENSE.txt" />
+    <None Remove="ClientApp\dist\main-es5.ec92b7c4f26185dc266e.js" />
+    <None Remove="ClientApp\dist\polyfills-es2015.18a2d97c855449dfde32.js" />
+    <None Remove="ClientApp\dist\polyfills-es2015.18a2d97c855449dfde32.js.LICENSE.txt" />
+    <None Remove="ClientApp\dist\polyfills-es5-es2015.c68321f9f80fb47633aa.js.LICENSE.txt" />
+    <None Remove="ClientApp\dist\polyfills-es5.c68321f9f80fb47633aa.js" />
+    <None Remove="ClientApp\dist\runtime-es2015.5d248a55231dbc94e56e.js" />
+    <None Remove="ClientApp\dist\runtime-es5.5d248a55231dbc94e56e.js" />
     <None Remove="ClientApp\src\app.js" />
     <None Remove="ClientApp\src\app\add-edit\common.component.html" />
     <None Remove="ClientApp\src\app\add-dewline\add-dewline.component.css" />
