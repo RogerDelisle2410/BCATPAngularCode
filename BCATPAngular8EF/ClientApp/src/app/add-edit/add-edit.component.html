@@ -44,47 +44,21 @@
             <input class="form-control" type="text" formControlName="wiki">
           </div>
         </div>
-      </div>
-
-
-
-      <!--<div>
-
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>-->
-      <!-- jsFiddle will insert css and js -->
-      <!--<input id="pac-input"
-             class="controls"
-             type="text"
-             placeholder="Search Box" />
-      <div id="map"></div>
-    </div>-->
-      <!--<div class="container">-->
-
-
+      </div>     
 
       <div class="col-lg-8">
-
-        <!--<div class="form-group">-->
-
-          <!--<label>Enter address</label>-->
-
-          <!--<input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
-        </div>-->
-
         <!--<ng-template #mymodal let-modal>-->
-        <agm-map [latitude]='lat3' [longitude]='lng3' [zoom]="zoom" [mapTypeId]='mapType' [fullscreenControl]='true' [mapTypeControl]='true'>
-          <agm-marker [latitude]='lat3' [longitude]='lng3' [markerDraggable]="true"
-                      (dragEnd)="markerDragEnd($event)"></agm-marker>
-        </agm-map>
+          <agm-map [latitude]='lat3' [longitude]='lng3' [zoom]="zoom" [mapTypeId]='mapType' [fullscreenControl]='true' [mapTypeControl]='true'>
+            <agm-marker [latitude]='lat3' [longitude]='lng3' [markerDraggable]="true"
+                        (dragEnd)="markerDragEnd($event)"></agm-marker>
+          </agm-map>
         <!--</ng-template>-->
       </div>
 
     </div>
-    <!--</div>-->
-    <!--<h5>Address: {{address}}</h5>
-    <div>Latitude: {{latitude}}</div>
-    <div>Longitude: {{longitude}}</div>-->
   </div>
+
+
 
   <footer style="float: right; display: block;  ">
     <button type="submit" class=" btn btn-primary" >Save</button> <!--//Roger for Azure disabled-->
