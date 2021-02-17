@@ -19,29 +19,36 @@
     <AssemblyName>BCATPAngular8EF</AssemblyName>
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants></DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DefineConstants />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <DefineConstants />
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0-preview.1.21102.2" />
+    <PackageReference Include="Microsoft.AspNetCore.NodeServices" Version="5.0.0-preview.8.20414.8" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0-preview.1.21102.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0-preview.1.21102.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0-preview.1.21102.12" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0-preview.1.21102.12" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.1-rc">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="NHibernate" Version="5.3.5" />
-    <PackageReference Include="Sharpbrake.Client" Version="5.1.0" />
+    <PackageReference Include="TypeScript.MSBuildTask" Version="1.7.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -116,7 +123,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Remove="ClientApp\dist\**" />
     <TypeScriptCompile Remove="ClientApp\node_modules\**" />
   </ItemGroup>
 
@@ -151,16 +157,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\dist\3rdpartylicenses.txt" />
-    <None Remove="ClientApp\dist\assets\img\CanadianFlag.png" />
-    <None Remove="ClientApp\dist\assets\img\CanadianForcesEnsign.png" />
-    <None Remove="ClientApp\dist\index.html" />
-    <None Remove="ClientApp\dist\main-es2015.d151c9164380431abe20.js" />
-    <None Remove="ClientApp\dist\main-es5.d151c9164380431abe20.js" />
-    <None Remove="ClientApp\dist\polyfills-es2015.99b133bb14ba292cc1d3.js" />
-    <None Remove="ClientApp\dist\polyfills-es5.a01def0ff66ab531295c.js" />
-    <None Remove="ClientApp\dist\runtime-es2015.69737fd31e4241d4961d.js" />
-    <None Remove="ClientApp\dist\runtime-es5.69737fd31e4241d4961d.js" />
+    <None Remove="ClientApp\dist\main-es2015.e8ce622e531408f8d151.js" />
+    <None Remove="ClientApp\dist\main-es2015.e8ce622e531408f8d151.js.LICENSE.txt" />
+    <None Remove="ClientApp\dist\main-es5.e8ce622e531408f8d151.js" />
+    <None Remove="ClientApp\dist\polyfills-es2015.18a2d97c855449dfde32.js" />
+    <None Remove="ClientApp\dist\polyfills-es2015.18a2d97c855449dfde32.js.LICENSE.txt" />
+    <None Remove="ClientApp\dist\polyfills-es5-es2015.c68321f9f80fb47633aa.js.LICENSE.txt" />
+    <None Remove="ClientApp\dist\polyfills-es5.c68321f9f80fb47633aa.js" />
+    <None Remove="ClientApp\dist\runtime-es2015.5d248a55231dbc94e56e.js" />
+    <None Remove="ClientApp\dist\runtime-es5.5d248a55231dbc94e56e.js" />
     <None Remove="ClientApp\dist\styles.eee70b2a93e156fddb47.css" />
     <None Remove="ClientApp\src\app.js" />
     <None Remove="ClientApp\src\app\add-edit\common.component.html" />
