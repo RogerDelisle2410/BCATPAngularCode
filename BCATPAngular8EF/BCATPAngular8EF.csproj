@@ -20,6 +20,7 @@
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     <EnableNETAnalyzers>false</EnableNETAnalyzers>
     <Platforms>AnyCPU;x64;x86</Platforms>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -35,12 +36,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.NodeServices" Version="5.0.0-preview.8.20414.8" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0-preview.1.21102.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0-preview.1.21102.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.1-rc">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="TypeScript.MSBuildTask" Version="1.7.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -115,7 +123,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Remove="ClientApp\dist\**" />
     <TypeScriptCompile Remove="ClientApp\node_modules\**" />
   </ItemGroup>
 
@@ -150,15 +157,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\dist\main-es2015.ec92b7c4f26185dc266e.js" />
-    <None Remove="ClientApp\dist\main-es2015.ec92b7c4f26185dc266e.js.LICENSE.txt" />
-    <None Remove="ClientApp\dist\main-es5.ec92b7c4f26185dc266e.js" />
+    <None Remove="ClientApp\dist\main-es2015.e8ce622e531408f8d151.js" />
+    <None Remove="ClientApp\dist\main-es2015.e8ce622e531408f8d151.js.LICENSE.txt" />
+    <None Remove="ClientApp\dist\main-es5.e8ce622e531408f8d151.js" />
     <None Remove="ClientApp\dist\polyfills-es2015.18a2d97c855449dfde32.js" />
     <None Remove="ClientApp\dist\polyfills-es2015.18a2d97c855449dfde32.js.LICENSE.txt" />
     <None Remove="ClientApp\dist\polyfills-es5-es2015.c68321f9f80fb47633aa.js.LICENSE.txt" />
     <None Remove="ClientApp\dist\polyfills-es5.c68321f9f80fb47633aa.js" />
     <None Remove="ClientApp\dist\runtime-es2015.5d248a55231dbc94e56e.js" />
     <None Remove="ClientApp\dist\runtime-es5.5d248a55231dbc94e56e.js" />
+    <None Remove="ClientApp\dist\styles.eee70b2a93e156fddb47.css" />
     <None Remove="ClientApp\src\app.js" />
     <None Remove="ClientApp\src\app\add-edit\common.component.html" />
     <None Remove="ClientApp\src\app\add-dewline\add-dewline.component.css" />
