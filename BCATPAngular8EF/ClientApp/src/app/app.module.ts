@@ -9,6 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AddBcatpComponent } from './add-edit/add-edit.component';
+import { CreateBcatpComponent } from './create-new/create-new.component';
 import { DataComponent } from './display-data/display-data';
 import { HeaderComponent } from './header/header.component';
 import { navyReducer } from './state/reducers/navy.reducer';
@@ -37,6 +38,7 @@ import { MatIconModule } from '@angular/material/icon';
     HomeComponent,
     FetchDataComponent,
     AddBcatpComponent,
+    CreateBcatpComponent,
     DataComponent,
     HeaderComponent
   ],
@@ -86,6 +88,9 @@ import { MatIconModule } from '@angular/material/icon';
       { path: 'register-bcatp/:formname', component: AddBcatpComponent },
       { path: 'bcatp/edit/:formname/:id/:name/:latitude/:longitude', component: AddBcatpComponent },
       { path: 'bcatp/edit2/:formname/:id/:name/:latitude/:longitude', component: AddBcatpComponent },
+      { path: 'register-bcatp2/:formname', component: CreateBcatpComponent },
+      { path: 'bcatp/add/:formname/:id/:name/:latitude/:longitude', component: CreateBcatpComponent },
+      //{ path: 'bcatp/add2/:formname/:id/:name/:latitude/:longitude', component: CreateBcatpComponent },
 
     ])
   ],

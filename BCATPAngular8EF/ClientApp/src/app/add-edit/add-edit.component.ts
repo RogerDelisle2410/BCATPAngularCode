@@ -3,20 +3,22 @@ import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 
 // import { BcatpService, NavyService, DewlineService} from '../services/bcatp.service';
- import { BcatpService, NavyService, DewlineService, PinetreeService, MidCanadaService} from '../services/bcatp.service';
- import { AirforceService, ArmyService, DefunctService} from '../services/bcatp.service';
+import { BcatpService, NavyService, DewlineService, PinetreeService, MidCanadaService } from '../services/bcatp.service';
+import { AirforceService, ArmyService, DefunctService } from '../services/bcatp.service';
 
 
 // import { Bcatp, Navy, Dewline } from 'src/models/bcatp';
-import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce,  Army, Defunct} from 'src/models/bcatp';
+import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp';
 import { AppState } from '../state/app.state';
 import { Store } from '@ngrx/store';
 
-//import { AddBcatp, EditBcatp, AddNavy, EditNavy, AddDewline, EditDewline } from '../state/actions/bcatp.actions';
+import {  EditBcatp,  EditNavy,  EditDewline,  EditPinetree } from '../state/actions/bcatp.actions';
 // tslint:disable-next-line: max-line-length
-  import { AddBcatp, EditBcatp, AddNavy, EditNavy, AddDewline, EditDewline, AddPinetree, EditPinetree} from '../state/actions/bcatp.actions';
-// tslint:disable-next-line: max-line-length
-  import { EditMidCanada, AddAirforce, EditAirforce, AddArmy, EditArmy, AddDefunct, EditDefunct, AddMidCanada  } from '../state/actions/bcatp.actions';
+import { EditMidCanada,  EditAirforce,  EditArmy,  EditDefunct,  } from '../state/actions/bcatp.actions';
+
+//import { AddBcatp, EditBcatp, AddNavy, EditNavy, AddDewline, EditDewline, AddPinetree, EditPinetree } from '../state/actions/bcatp.actions';
+//// tslint:disable-next-line: max-line-length
+//import { EditMidCanada, AddAirforce, EditAirforce, AddArmy, EditArmy, AddDefunct, EditDefunct, AddMidCanada } from '../state/actions/bcatp.actions';
 
 import { Location } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -59,11 +61,11 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
     private _BcatpService: BcatpService,
     private _NavyService: NavyService,
     private _DewlineService: DewlineService,
-     private _PinetreeService: PinetreeService,
-     private _MidCanadaService: MidCanadaService,
-     private _AirforceService: AirforceService,
-     private _ArmyService: ArmyService,
-     private _DefunctService: DefunctService,
+    private _PinetreeService: PinetreeService,
+    private _MidCanadaService: MidCanadaService,
+    private _AirforceService: AirforceService,
+    private _ArmyService: ArmyService,
+    private _DefunctService: DefunctService,
     private _router: Router,
     private store: Store<AppState>,
     private router: Router,
@@ -124,27 +126,27 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
             this.FormName.setValue(response);
           }, error => console.error(error));
           break;
-         case 'Pinetree':
+        case 'Pinetree':
           this._PinetreeService.getPinetreeById(this.id).subscribe((response = Pinetree) => {
             this.FormName.setValue(response);
           }, error => console.error(error));
           break;
-         case 'MidCanada':
+        case 'MidCanada':
           this._MidCanadaService.getMidCanadaById(this.id).subscribe((response = MidCanada) => {
             this.FormName.setValue(response);
           }, error => console.error(error));
           break;
-         case 'Airforce':
+        case 'Airforce':
           this._AirforceService.getAirforceById(this.id).subscribe((response = Airforce) => {
             this.FormName.setValue(response);
           }, error => console.error(error));
           break;
-         case 'Army':
+        case 'Army':
           this._ArmyService.getArmyById(this.id).subscribe((response = Army) => {
             this.FormName.setValue(response);
           }, error => console.error(error));
           break;
-         case 'Defunct':
+        case 'Defunct':
           this._DefunctService.getDefunctById(this.id).subscribe((response = Defunct) => {
             this.FormName.setValue(response);
           }, error => console.error(error));
@@ -241,35 +243,38 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
       return;
     }
 
-    if (this.title === 'Create') {
+    //if (this.title === 'Create') {
 
-      switch (this.formname) {
-        case 'Bcatp':
-          this.store.dispatch(AddBcatp({ bcatp: this.FormName.value }));
-          break;
-        case 'Navy':
-          this.store.dispatch(AddNavy({ navy: this.FormName.value }));
-          break;
-        case 'Dewline':
-          this.store.dispatch(AddDewline({ dewline: this.FormName.value }));
-          break;
-         case 'Pinetree':
-          this.store.dispatch(AddPinetree({ pinetree: this.FormName.value }));
-          break;
-         case 'MidCanada':
-          this.store.dispatch(AddMidCanada({ midcanada: this.FormName.value }));
-          break;
-         case 'Army':
-          this.store.dispatch(AddArmy({ army: this.FormName.value }));
-          break;
-         case 'Airforce':
-          this.store.dispatch(AddAirforce({ airforce: this.FormName.value }));
-          break;
-         case 'Defunct':
-          this.store.dispatch(AddDefunct({ defunct: this.FormName.value }));
-          break;
-      }
-    } else if (this.title === 'Edit') {
+      //switch (this.formname) {
+      //  case 'Bcatp':
+      //    this.store.dispatch(AddBcatp({ bcatp: this.FormName.value }));
+      //    break;
+      //  case 'Navy':
+      //    this.store.dispatch(AddNavy({ navy: this.FormName.value }));
+      //    break;
+      //  case 'Dewline':
+      //    this.store.dispatch(AddDewline({ dewline: this.FormName.value }));
+      //    break;
+      //  case 'Pinetree':
+      //    this.store.dispatch(AddPinetree({ pinetree: this.FormName.value }));
+      //    break;
+      //  case 'MidCanada':
+      //    this.store.dispatch(AddMidCanada({ midcanada: this.FormName.value }));
+      //    break;
+      //  case 'Army':
+      //    this.store.dispatch(AddArmy({ army: this.FormName.value }));
+      //    break;
+      //  case 'Airforce':
+      //    this.store.dispatch(AddAirforce({ airforce: this.FormName.value }));
+      //    break;
+      //  case 'Defunct':
+      //    this.store.dispatch(AddDefunct({ defunct: this.FormName.value }));
+      //    break;
+      //}
+    //}
+
+    //else
+      if (this.title === 'Edit') {
       switch (this.formname) {
         case 'Bcatp':
           this.store.dispatch(EditBcatp({ bcatp: this.FormName.value }));
@@ -280,19 +285,19 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
         case 'Dewline':
           this.store.dispatch(EditDewline({ dewline: this.FormName.value }));
           break;
-         case 'Pinetree':
+        case 'Pinetree':
           this.store.dispatch(EditPinetree({ pinetree: this.FormName.value }));
           break;
-         case 'MidCanada':
+        case 'MidCanada':
           this.store.dispatch(EditMidCanada({ midcanada: this.FormName.value }));
           break;
-         case 'Airforce':
+        case 'Airforce':
           this.store.dispatch(EditAirforce({ airforce: this.FormName.value }));
           break;
-         case 'Army':
+        case 'Army':
           this.store.dispatch(EditArmy({ army: this.FormName.value }));
           break;
-         case 'Defunct':
+        case 'Defunct':
           this.store.dispatch(EditDefunct({ defunct: this.FormName.value }));
           break;
       }

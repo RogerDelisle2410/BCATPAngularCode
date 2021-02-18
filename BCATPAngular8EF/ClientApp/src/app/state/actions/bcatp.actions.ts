@@ -8,6 +8,9 @@ export enum BcatpActionTypes {
     ADD_BCATP = '[BCATP] Add',
     ADD_BCATP_SUCCESS = "[BCATP] Add Bcatp Success",
     ADD_BCATP_FAILURE = "[BCATP] Add Bcatp Failed",
+    //CREATE_BCATP = '[BCATP] Create',
+    //CREATE_BCATP_SUCCESS = "[BCATP] Create Bcatp Success",
+    //CREATE_BCATP_FAILURE = "[BCATP] Create Bcatp Failed",
     EDIT_BCATP = '[BCATP] EDIT',
     EDIT_BCATP_SUCCESS = "[BCATP] EDIT Bcatp Success",
     EDIT_BCATP_FAILURE = "[BCATP] EDIT Bcatp Failed",
@@ -44,6 +47,21 @@ export const AddBcatpFailure = createAction(
     BcatpActionTypes.ADD_BCATP_FAILURE,
     props<{ error: any }>()
 )
+
+//export const CreateBcatp = createAction(
+//  BcatpActionTypes.CREATE_BCATP,
+//  props<{ bcatp: Bcatp }>()
+//)
+
+//export const CreateBcatpSuccess = createAction(
+//  BcatpActionTypes.CREATE_BCATP_SUCCESS,
+//  props<{ bcatp: Bcatp }>()
+//)
+
+//export const CreateBcatpFailure = createAction(
+//  BcatpActionTypes.CREATE_BCATP_FAILURE,
+//  props<{ error: any }>()
+//)
 
 export const EditBcatp = createAction(
     BcatpActionTypes.EDIT_BCATP,

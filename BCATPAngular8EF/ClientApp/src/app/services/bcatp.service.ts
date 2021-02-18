@@ -49,6 +49,7 @@ export class BcatpService {
         }));
   }
 
+
   deleteBcatp(id: number): Observable<any> {
     return this._http.delete(this.myAppUrl + 'api/Bcatp/Delete/' + id)
       .pipe(map(

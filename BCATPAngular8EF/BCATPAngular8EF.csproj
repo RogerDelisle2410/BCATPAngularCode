@@ -248,6 +248,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\app\create-new\create-new.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\create-new\create-new.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\airforce.reducer.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\army.reducer.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\bcatp.reducer.ts" />
