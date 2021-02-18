@@ -26,6 +26,8 @@ namespace BCATPAngular8EF
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
             services.AddTransient<IBcatp, BcatpDataAccessLayer>();
             services.AddDbContext<BCATPDBContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
@@ -59,6 +61,8 @@ namespace BCATPAngular8EF
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -104,9 +108,11 @@ namespace BCATPAngular8EF
 
                 if (env.IsDevelopment())
                 {
-                  //     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
-               //  spa.UseAngularCliServer(npmScript: "start");
-                }
+                    app.UseDeveloperExceptionPage();
+                    //     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                     spa.UseAngularCliServer(npmScript: "start");
+                } 
+
             });
         }
     }
