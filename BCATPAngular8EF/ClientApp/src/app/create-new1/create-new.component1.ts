@@ -12,13 +12,9 @@ import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } fr
 import { AppState } from '../state/app.state';
 import { Store } from '@ngrx/store';
 
-import {  EditBcatp,  EditNavy,  EditDewline,  EditPinetree } from '../state/actions/bcatp.actions';
+import { AddBcatp,  AddNavy,  AddDewline,  AddPinetree  } from '../state/actions/bcatp.actions';
 // tslint:disable-next-line: max-line-length
-import { EditMidCanada,  EditAirforce,  EditArmy,  EditDefunct,  } from '../state/actions/bcatp.actions';
-
-//import { AddBcatp, EditBcatp, AddNavy, EditNavy, AddDewline, EditDewline, AddPinetree, EditPinetree } from '../state/actions/bcatp.actions';
-//// tslint:disable-next-line: max-line-length
-//import { EditMidCanada, AddAirforce, EditAirforce, AddArmy, EditArmy, AddDefunct, EditDefunct, AddMidCanada } from '../state/actions/bcatp.actions';
+import {  AddAirforce,  AddArmy,  AddDefunct,  AddMidCanada } from '../state/actions/bcatp.actions';
 
 import { Location } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -26,15 +22,15 @@ import { Subscription } from 'rxjs';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
 
 @Component({
-  selector: 'app-add-edit',
-  templateUrl: './add-edit.component.html',
-  styleUrls: ['./add-edit.component.css']
+  selector: 'app-create-new',
+  templateUrl: './create-new.component.html',
+  styleUrls: ['./create-new.component.css']
 })
-export class AddBcatpComponent implements OnInit, OnDestroy {
-  FormName: FormGroup;
+export class CreateBcatpComponent implements OnInit, OnDestroy {
+  FormName2: FormGroup;
   title = 'Create';
   id: number;
-  formname: string;
+  formname2: string;
   getById: string;
   name2: string;
 
@@ -43,16 +39,16 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
   lng: number;
   mapType = 'satellite';
   zoom = 13;
-  address: string;
+  address: string;   
   private geoCoder;
 
   nameSubscription: Subscription;
   latSubscription: Subscription;
   lngSubscription: Subscription;
 
-  get name3() { return this.FormName.get('name').value; }
-  get lat3() { return this.FormName.get('latitude').value; }
-  get lng3() { return this.FormName.get('longitude').value; }
+  get name3() { return this.FormName2.get('name').value; }
+  get lat3() { return this.FormName2.get('latitude').value; }
+  get lng3() { return this.FormName2.get('longitude').value; }
 
   @ViewChild('search', { static: true })
   public searchElementRef: ElementRef;
@@ -75,8 +71,8 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
     if (this._avRoute.snapshot.params['id']) {
       this.id = this._avRoute.snapshot.params['id'];
     }
-    if (this._avRoute.snapshot.params['formname']) {
-      this.formname = this._avRoute.snapshot.params['formname'];
+    if (this._avRoute.snapshot.params['formname2']) {
+      this.formname2 = this._avRoute.snapshot.params['formname2'];
     }
     if (this._avRoute.snapshot.params['name']) {
       this.name2 = this._avRoute.snapshot.params['name'];
@@ -88,7 +84,7 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
       this.lng = Math.max(this._avRoute.snapshot.params['longitude']);
     }
 
-    this.FormName = this._fb.group({
+    this.FormName2 = this._fb.group({
       id: 0,
       name: ['', [Validators.required]],
       longitude: ['', [Validators.required]],
@@ -99,60 +95,60 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // tslint:disable-next-line: comment-format
-    // this.nameSubscription = this.FormName.get('name').valueChanges.subscribe();
-    this.latSubscription = this.FormName.get('latitude').valueChanges.subscribe();
-    this.lngSubscription = this.FormName.get('longitude').valueChanges.subscribe();
 
-    this.getById = 'this._' + this.formname + 'Service.get' + this.formname +
-      'ById(this.id).subscribe((response=' + this.formname + ') => { this.FormName.setValue(response);}, error => console.error(error));';
+
+    this.latSubscription = this.FormName2.get('latitude').valueChanges.subscribe();
+    this.lngSubscription = this.FormName2.get('longitude').valueChanges.subscribe();
+
+    this.getById = 'this._' + this.formname2 + 'Service.get' + this.formname2 +
+      'ById(this.id).subscribe((response=' + this.formname2 + ') => { this.FormName2.setValue(response);}, error => console.error(error));';
 
     if (this.id > 0) {
-      this.title = 'Edit';
+      this.title = 'Create';
 
-      switch (this.formname) {
+      switch (this.formname2) {
         case 'Bcatp':
           this._BcatpService.getBcatpById(this.id).subscribe((response = Bcatp) => {
-            this.FormName.setValue(response);
+            this.FormName2.setValue(response);
           }, error => console.error(error));
           break;
         case 'Navy':
           this._NavyService.getNavyById(this.id).subscribe((response = Navy) => {
-            this.FormName.setValue(response);
+            this.FormName2.setValue(response);
           }, error => console.error(error));
           break;
         case 'Dewline':
           this._DewlineService.getDewlineById(this.id).subscribe((response = Dewline) => {
-            this.FormName.setValue(response);
+            this.FormName2.setValue(response);
           }, error => console.error(error));
           break;
         case 'Pinetree':
           this._PinetreeService.getPinetreeById(this.id).subscribe((response = Pinetree) => {
-            this.FormName.setValue(response);
+            this.FormName2.setValue(response);
           }, error => console.error(error));
           break;
         case 'MidCanada':
           this._MidCanadaService.getMidCanadaById(this.id).subscribe((response = MidCanada) => {
-            this.FormName.setValue(response);
+            this.FormName2.setValue(response);
           }, error => console.error(error));
           break;
         case 'Airforce':
           this._AirforceService.getAirforceById(this.id).subscribe((response = Airforce) => {
-            this.FormName.setValue(response);
+            this.FormName2.setValue(response);
           }, error => console.error(error));
           break;
         case 'Army':
           this._ArmyService.getArmyById(this.id).subscribe((response = Army) => {
-            this.FormName.setValue(response);
+            this.FormName2.setValue(response);
           }, error => console.error(error));
           break;
         case 'Defunct':
           this._DefunctService.getDefunctById(this.id).subscribe((response = Defunct) => {
-            this.FormName.setValue(response);
+            this.FormName2.setValue(response);
           }, error => console.error(error));
           break;
       }
-    }
+     }
 
     this.mapsAPILoader.load().then(() => {
       this.name.setValue('Calgary');
@@ -182,7 +178,7 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
         });
       });
     });
-  }
+   }
 
   // Get Current Location Coordinates
   private setCurrentLocation() {
@@ -191,18 +187,20 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
 
-        this.FormName.value('latitude').value = this.lat;
-        this.FormName.value('longitude').value = this.lng;
+        this.FormName2.value('latitude').value = this.lat;
+        this.FormName2.value('longitude').value = this.lng;
 
-        // this.getAddress(this.lat, this.lng);
+        this.getAddress(this.lat, this.lng);
       });
     }
   }
+ 
 
   getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ 'location': { lat3: latitude, lng3: longitude } }, (results, status) => {      
+    this.geoCoder.geocode({ 'location': { lat3: latitude, lng3: longitude } }, (results, status) => {
       if (status === 'OK') {
         if (results[0]) {
+          this.zoom = 12;
           this.address = results[0].formatted_address;
         } else {
           window.alert('No results found');
@@ -233,36 +231,35 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
 
   save() {
 
-    if (!this.FormName.valid) {
+    if (!this.FormName2.valid) {
       return;
-    } 
+    }
 
-  
-      if (this.title === 'Edit') {
-      switch (this.formname) {
+    if (this.title === 'Create') {
+      switch (this.formname2) {
         case 'Bcatp':
-          this.store.dispatch(EditBcatp({ bcatp: this.FormName.value }));
+          this.store.dispatch(AddBcatp({ bcatp: this.FormName2.value }));
           break;
         case 'Navy':
-          this.store.dispatch(EditNavy({ navy: this.FormName.value }));
+          this.store.dispatch(AddNavy({ navy: this.FormName2.value }));
           break;
         case 'Dewline':
-          this.store.dispatch(EditDewline({ dewline: this.FormName.value }));
+          this.store.dispatch(AddDewline({ dewline: this.FormName2.value }));
           break;
         case 'Pinetree':
-          this.store.dispatch(EditPinetree({ pinetree: this.FormName.value }));
+          this.store.dispatch(AddPinetree({ pinetree: this.FormName2.value }));
           break;
         case 'MidCanada':
-          this.store.dispatch(EditMidCanada({ midcanada: this.FormName.value }));
-          break;
-        case 'Airforce':
-          this.store.dispatch(EditAirforce({ airforce: this.FormName.value }));
+          this.store.dispatch(AddMidCanada({ midcanada: this.FormName2.value }));
           break;
         case 'Army':
-          this.store.dispatch(EditArmy({ army: this.FormName.value }));
+          this.store.dispatch(AddArmy({ army: this.FormName2.value }));
+          break;
+        case 'Airforce':
+          this.store.dispatch(AddAirforce({ airforce: this.FormName2.value }));
           break;
         case 'Defunct':
-          this.store.dispatch(EditDefunct({ defunct: this.FormName.value }));
+          this.store.dispatch(AddDefunct({ defunct: this.FormName2.value }));
           break;
       }
     }
@@ -281,10 +278,10 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
     }
   }
 
-  get name() { return this.FormName.get('name'); }
-  get longitude() { return this.FormName.get('longitude'); }
-  get latitude() { return this.FormName.get('latitude'); }
-  get comment() { return this.FormName.get('comment'); }
-  get wiki() { return this.FormName.get('wiki'); }
+  get name() { return this.FormName2.get('name'); }
+  get longitude() { return this.FormName2.get('longitude'); }
+  get latitude() { return this.FormName2.get('latitude'); }
+  get comment() { return this.FormName2.get('comment'); }
+  get wiki() { return this.FormName2.get('wiki'); }
 
 }

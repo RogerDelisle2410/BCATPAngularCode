@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<form [formGroup]="FormName" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+<form [formGroup]="FormName2" (ngSubmit)="save()" #formDir="ngForm" novalidate>
   <div class="container">
 
     <div class=row>
@@ -48,6 +48,7 @@
 
 
       <div class="col-lg-8">
+        <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" #search>
         <agm-map [latitude]='lat3' [longitude]='lng3' [zoom]="zoom" [mapTypeId]='mapType' [fullscreenControl]='true' [mapTypeControl]='true'>
           <agm-marker [latitude]='lat3' [longitude]='lng3' [markerDraggable]="true"
                       (dragEnd)="markerDragEnd($event)"></agm-marker>
@@ -57,12 +58,12 @@
     </div>
   </div>
 
-  <!--<h5>Address: {{address}}</h5>
+  <h5>Address: {{address}}</h5>
   <div>Latitude: {{lat3}}</div>
-  <div>Longitude: {{lng3}}</div>-->
+  <div>Longitude: {{lng3}}</div>
 
   <footer style="float: right; display: block;  ">
-    <button type="submit" class=" btn btn-primary" >Save</button> <!--//Roger for Azure disabled-->
+    <button type="submit" class=" btn btn-primary">Save</button> <!--//Roger for Azure disabled-->
     <button class="btn btn-danger" (click)="cancel()">Cancel</button>
   </footer>
 

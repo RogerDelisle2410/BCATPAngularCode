@@ -45,7 +45,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.1-rc">
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -248,6 +248,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\app\create-new1\create-new.component.spec1.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\create-new1\create-new.component1.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\create-new\create-new.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\create-new\create-new.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\airforce.reducer.ts" />
