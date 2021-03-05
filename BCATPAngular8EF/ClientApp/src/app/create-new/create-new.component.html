@@ -1,18 +1,69 @@
-<form [formGroup]="FormName2" (ngSubmit)="save()" #formDir="ngForm" novalidate>
-  <div class="container">
-    <h1>Angular Google Map with Search Box Example - ItSolutionStuff.com</h1>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <form [formGroup]="FormName3" (ngSubmit)="save()" #formDir="ngForm" novalidate > <!--novalidate>-->
+   <div class="container">
 
-    <div class="form-group">
-      <label>Enter address</label>
-      <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
-    </div>
-    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-      <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"></agm-marker>
-    </agm-map>
+     <div class=row>
+       <div class="col-lg-4" style="align-content:center;border:solid; border-width:1px; border-color:black;">
+         <div class="form-group row">
+           <label class=" control-label col-md-12">Name</label>
+           <div class="col-md-10">
+             <input class="form-control" placeholder="name" type="text" id="name" formControlName="name" >
+           </div>
+           <span class="text-danger" *ngIf="name?.invalid && formDir.submitted">
+             Name is required.
+           </span>
+         </div>
+         <div class="form-group row">
+           <label class="control-label col-md-12" for="Latitude">Latitude</label>
+           <div class="col-md-10">
+             <input class="form-control" placeholder="latitude" type="number" id="latitude" formControlName="latitude" value="{{latitude}}"/> <!--value="{{latitude}}"  -->
+           </div>
+           <!--<span class="text-danger" *ngIf="latitude.invalid && formDir.submitted">
+             Latitude is required
+           </span>-->
+         </div>
+         <div class="form-group row">
+           <label class="control-label col-md-12" for="Longitude">Longitude</label>
+           <div class="col-md-10">
+             <input class="form-control" placeholder="longitude" type="number" id="longitude" formControlName="longitude" value="{{longitude}}"/> <!--value="{{longitude}}"  -->
+           </div> 
+           <!--<span class="text-danger" *ngIf="longitude.invalid && formDir.submitted">
+             Longitude is required
+           </span>-->
+         </div>
+         <div class="form-group row">
+           <label class="control-label col-md-12" for="Comment">Comment</label>
+           <div class="col-md-10">
+             <input class="form-control" type="text" formControlName="comment">
+           </div>
+         </div>
+         <div class="form-group row">
+           <label class="control-label col-md-12" for="Info">Wikipedia</label>
+           <div class="col-md-10">
+             <input class="form-control" type="text" formControlName="wiki">
+           </div>
+         </div>
+       </div>
 
-    <h5>Address: {{address}}</h5>
-    <div>Latitude: {{latitude}}</div>
-    <div>Longitude: {{longitude}}</div>
+       <div class="col-lg-8">
+         <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off"   #search>
 
-  </div>
-</form>
+         <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [mapTypeId]='mapType' [fullscreenControl]='true' [mapTypeControl]='true'>
+           <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
+         </agm-map>
+
+
+       </div>
+     </div>
+   </div>
+
+     <!--<h5>Address: {{address}}</h5>
+     <div>Latitude: {{latitude}}</div>
+     <div>Longitude: {{longitude}}</div>-->
+
+     <footer style="float: right; display: block;  ">
+       <button type="submit" class=" btn btn-primary">Save</button> <!--//Roger for Azure disabled-->
+       <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+     </footer>
+ 
+   </form>

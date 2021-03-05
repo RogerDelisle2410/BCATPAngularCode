@@ -84,14 +84,14 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
       this.lng = Math.max(this._avRoute.snapshot.params['longitude']);
     }
 
-    this.FormName2 = this._fb.group({
-      id: 0,
-      name: ['', [Validators.required]],
-      longitude: ['', [Validators.required]],
-      latitude: ['', [Validators.required]],
-      comment: [''],
-      wiki: ['']
-    });
+    //this.FormName2 = this._fb.group({
+    //  id: 0,
+    //  name: ['', [Validators.required]],
+    //  longitude: ['', [Validators.required]],
+    //  latitude: ['', [Validators.required]],
+    //  comment: [''],
+    //  wiki: ['']
+    //});
   }
 
   ngOnInit() {
@@ -262,7 +262,7 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
           this.store.dispatch(AddDefunct({ defunct: this.FormName2.value }));
           break;
       }
-    }
+    }  
     this.location.back();
   }
 

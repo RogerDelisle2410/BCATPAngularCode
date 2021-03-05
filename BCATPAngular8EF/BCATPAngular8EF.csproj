@@ -36,15 +36,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.3" />
-    <PackageReference Include="Microsoft.AspNetCore.NodeServices" Version="5.0.0-preview.8.20414.8" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0-preview.1.21102.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0-preview.1.21102.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -60,6 +54,7 @@
     <Compile Remove="ClientApp\src\app\add-navy\**" />
     <Compile Remove="ClientApp\src\app\common-component\**" />
     <Compile Remove="ClientApp\src\app\counter\**" />
+    <Compile Remove="ClientApp\src\app\create-new1\**" />
     <Compile Remove="ClientApp\src\app\dialog-exemple\**" />
     <Compile Remove="ClientApp\src\app\display-map\**" />
     <Compile Remove="ClientApp\src\app\fetch-bcatp-map\**" />
@@ -77,6 +72,7 @@
     <Content Remove="ClientApp\src\app\add-navy\**" />
     <Content Remove="ClientApp\src\app\common-component\**" />
     <Content Remove="ClientApp\src\app\counter\**" />
+    <Content Remove="ClientApp\src\app\create-new1\**" />
     <Content Remove="ClientApp\src\app\dialog-exemple\**" />
     <Content Remove="ClientApp\src\app\display-map\**" />
     <Content Remove="ClientApp\src\app\fetch-bcatp-map\**" />
@@ -93,6 +89,7 @@
     <EmbeddedResource Remove="ClientApp\src\app\add-navy\**" />
     <EmbeddedResource Remove="ClientApp\src\app\common-component\**" />
     <EmbeddedResource Remove="ClientApp\src\app\counter\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\create-new1\**" />
     <EmbeddedResource Remove="ClientApp\src\app\dialog-exemple\**" />
     <EmbeddedResource Remove="ClientApp\src\app\display-map\**" />
     <EmbeddedResource Remove="ClientApp\src\app\fetch-bcatp-map\**" />
@@ -110,6 +107,7 @@
     <None Remove="ClientApp\src\app\add-navy\**" />
     <None Remove="ClientApp\src\app\common-component\**" />
     <None Remove="ClientApp\src\app\counter\**" />
+    <None Remove="ClientApp\src\app\create-new1\**" />
     <None Remove="ClientApp\src\app\dialog-exemple\**" />
     <None Remove="ClientApp\src\app\display-map\**" />
     <None Remove="ClientApp\src\app\fetch-bcatp-map\**" />
@@ -125,6 +123,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Remove="ClientApp\node_modules\**" />
+    <TypeScriptCompile Remove="ClientApp\src\app\create-new1\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -185,6 +184,12 @@
     <None Remove="ClientApp\src\app\counter\counter.component.html" />
     <None Remove="ClientApp\src\app\counter\counter.component.spec.ts" />
     <None Remove="ClientApp\src\app\counter\counter.component.ts" />
+    <None Remove="ClientApp\src\app\create-new1\create-new.component.spec1.js" />
+    <None Remove="ClientApp\src\app\create-new1\create-new.component.spec1.js.map" />
+    <None Remove="ClientApp\src\app\create-new1\create-new.component.spec1.ts" />
+    <None Remove="ClientApp\src\app\create-new1\create-new.component1.css" />
+    <None Remove="ClientApp\src\app\create-new1\create-new.component1.html" />
+    <None Remove="ClientApp\src\app\create-new1\create-new.component1.ts" />
     <None Remove="ClientApp\src\app\dialog-exemple\dialog-exemple.component.css" />
     <None Remove="ClientApp\src\app\dialog-exemple\dialog-exemple.component.html" />
     <None Remove="ClientApp\src\app\dialog-exemple\dialog-exemple.component.spec.ts" />
@@ -248,8 +253,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Remove="ClientApp\src\app\create-new1\create-new.component.spec1.ts" />
-    <TypeScriptCompile Remove="ClientApp\src\app\create-new1\create-new.component1.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\create-new\create-new.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\create-new\create-new.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\airforce.reducer.ts" />

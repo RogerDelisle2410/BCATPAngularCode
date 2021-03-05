@@ -1,25 +1,13 @@
 import { Component, OnInit, Input, Output, OnDestroy, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
-// import { BcatpService, NavyService, DewlineService} from '../services/bcatp.service';
 import { BcatpService, NavyService, DewlineService, PinetreeService, MidCanadaService } from '../services/bcatp.service';
 import { AirforceService, ArmyService, DefunctService } from '../services/bcatp.service';
-
-
-// import { Bcatp, Navy, Dewline } from 'src/models/bcatp';
 import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp';
 import { AppState } from '../state/app.state';
 import { Store } from '@ngrx/store';
-
 import {  EditBcatp,  EditNavy,  EditDewline,  EditPinetree } from '../state/actions/bcatp.actions';
-// tslint:disable-next-line: max-line-length
 import { EditMidCanada,  EditAirforce,  EditArmy,  EditDefunct,  } from '../state/actions/bcatp.actions';
-
-//import { AddBcatp, EditBcatp, AddNavy, EditNavy, AddDewline, EditDewline, AddPinetree, EditPinetree } from '../state/actions/bcatp.actions';
-//// tslint:disable-next-line: max-line-length
-//import { EditMidCanada, AddAirforce, EditAirforce, AddArmy, EditArmy, AddDefunct, EditDefunct, AddMidCanada } from '../state/actions/bcatp.actions';
-
 import { Location } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
@@ -269,15 +257,10 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
     this.location.back();
   }
 
-  cancel() {
-    if (this.title === 'Create') {
+  cancel() { 
+    {
       this.title = '';
-      // this.location.back();
-      this._router.navigate(['/fetch-bcatp']);
-    } else if (this.title === 'Edit') {
-      this.title = '';
-      this._router.navigate(['/fetch-bcatp']);
-      // this.location.back();
+      this._router.navigate(['/fetch-bcatp']); 
     }
   }
 
