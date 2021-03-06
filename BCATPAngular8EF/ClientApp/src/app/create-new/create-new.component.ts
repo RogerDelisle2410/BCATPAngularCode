@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router, RouterStateSnapshot } from '@angular/router';
 import { BcatpService, NavyService, DewlineService, PinetreeService, MidCanadaService } from '../services/bcatp.service';
 import { AirforceService, ArmyService, DefunctService } from '../services/bcatp.service';
-import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp';
+import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp'; 
 import { AppState } from '../state/app.state';
 import { Store } from '@ngrx/store';
 import { AddBcatp, AddNavy, AddDewline, AddPinetree } from '../state/actions/bcatp.actions';
