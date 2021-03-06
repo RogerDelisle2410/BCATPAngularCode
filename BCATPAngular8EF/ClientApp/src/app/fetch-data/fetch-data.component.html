@@ -1,5 +1,4 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
 <ng-template #mymodal let-modal>
   <div class="modal-body">
     <h5>{{name}}</h5>
@@ -20,10 +19,8 @@
       <a href='{{wikiLink}}' target="_blank"><h4>{{formname}}</h4></a>
     </div>
 
-    <div class="col-lg-5">
-          <a style="display:inline-block;" [routerLink]="['/fetch-navy2', 'Navy','navy']"><h5>Create</h5></a>
-
-      <!--<a style="display:inline-block;" [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></a>-->
+    <div class="col-lg-5"> 
+       <a style="display:inline-block;" [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></a>
     </div>  
   </nav>
 </div> 

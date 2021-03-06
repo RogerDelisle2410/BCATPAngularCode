@@ -21,8 +21,6 @@ import { airforceReducer } from './state/reducers/airforce.reducer';
 import { armyReducer } from './state/reducers/army.reducer';
 import { defunctReducer } from './state/reducers/defunct.reducer';
 import { EffectsModule } from '@ngrx/effects';
-// import { BcatpEffect, NavyEffect, DewlineEffect } from './state/effects/bcatp.effect';
-// tslint:disable-next-line: max-line-length
 import { BcatpEffect, NavyEffect, DewlineEffect, PinetreeEffect, MidCanadaEffect, AirforceEffect, ArmyEffect, DefunctEffect } from './state/effects/bcatp.effect';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -30,8 +28,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconModule } from '@angular/material/icon';
-
-
 
 @NgModule({
   declarations: [
@@ -44,8 +40,6 @@ import { MatIconModule } from '@angular/material/icon';
     DataComponent,
     HeaderComponent
   ],
-
-
 
   imports: [
     NgbModule,
@@ -60,52 +54,31 @@ import { MatIconModule } from '@angular/material/icon';
       libraries: ['places', 'geometry']
     }),
     ReactiveFormsModule,
-
-  
-    //StoreModule.forRoot({
-    //  bcatp: bcatpReducer, navy: navyReducer, dewline: dewlineReducer
-    //}),
     StoreModule.forRoot({
-      //  tslint:disable-next-line: max-line-length
       navy: navyReducer, bcatp: bcatpReducer, dewline: dewlineReducer, pinetree: pinetreeReducer, midcanada: midcanadaReducer, airforce: airforceReducer, army: armyReducer, defunct: defunctReducer
     }),
 
-
-
-    // EffectsModule.forRoot([BcatpEffect, NavyEffect, DewlineEffect]),
-    // tslint:disable-next-line: max-line-length
     EffectsModule.forRoot([NavyEffect, BcatpEffect, DewlineEffect, PinetreeEffect, MidCanadaEffect, AirforceEffect, ArmyEffect, DefunctEffect]),
 
     StoreDevtoolsModule.instrument({
       maxAge: 25
-
     }),
 
-      
-
     RouterModule.forRoot([
-   
+
       { path: '', component: HomeComponent, pathMatch: 'full' },
 
       { path: 'fetch-home', component: HomeComponent },
       { path: 'fetch-data/:formname/:formname2', component: FetchDataComponent },
-       { path: 'fetch-navy/:formname/:formname2', component: FetchDataComponent }, 
-
-
+      { path: 'fetch-navy/:formname/:formname2', component: FetchDataComponent },
       { path: 'fetch-dewline/:formname/:formname2', component: FetchDataComponent },
       { path: 'fetch-pinetree/:formname/:formname2', component: FetchDataComponent },
       { path: 'fetch-midcanada/:formname/:formname2', component: FetchDataComponent },
       { path: 'fetch-airforce/:formname/:formname2', component: FetchDataComponent },
       { path: 'fetch-army/:formname/:formname2', component: FetchDataComponent },
       { path: 'fetch-defunct/:formname/:formname2', component: FetchDataComponent },
-      
       { path: 'bcatp/edit/:formname/:id/:name/:latitude/:longitude', component: AddBcatpComponent },
-
-      { path: 'fetch-navy2/:formname3/:formname2', component: CreateBcatpComponent },
-/*      { path: 'bcatp/add/:formname3', component: CreateBcatpComponent },*/
-
-    /*  { path: 'fetch-bcatp2/:formname3/:formname2', component: CreateBcatpComponent },*/
-
+      { path: 'bcatp/add/:formname3', component: CreateBcatpComponent },
     ])
   ],
   providers: [],
