@@ -211,7 +211,7 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
     this.getAddress(this.latitude, this.longitude);
   }
 
-  save(state: RouterStateSnapshot) {
+  save() {
 
     if (!this.FormName3.valid) {
       return;

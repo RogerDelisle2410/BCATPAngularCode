@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { Bcatp, Navy, Dewline } from 'src/models/bcatp';
- import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp';
+import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../state/app.state';
 import { Observable } from 'rxjs';

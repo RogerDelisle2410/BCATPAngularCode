@@ -19,11 +19,11 @@
       <a href='{{wikiLink}}' target="_blank"><h4>{{formname}}</h4></a>
     </div>
 
-    <div class="col-lg-5"> 
-       <a style="display:inline-block;" [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></a>
-    </div>  
+    <div class="col-lg-5">
+      <a style="display:inline-block;" [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></a>
+    </div>
   </nav>
-</div> 
+</div>
 
 <section>
   <div class="content" id="main">
@@ -41,7 +41,8 @@
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button style="display: inline-block; color: red; height: 30px;" [routerLink]="" (click)="delete(listItem.id, listItem.name)" data-toggle="tooltip" title="Delete"> <!--//Roger for Azure disabled-->
+          <button style="display: inline-block; color: red; height: 30px;" [routerLink]="" (click)="delete(listItem.id, listItem.name)" data-toggle="tooltip" title="Delete">
+            <!--//Roger for Azure disabled-->
             <mat-icon>delete</mat-icon>
           </button>
           <!--disabled-->

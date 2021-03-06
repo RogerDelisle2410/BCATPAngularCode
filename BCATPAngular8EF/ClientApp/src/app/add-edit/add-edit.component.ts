@@ -6,8 +6,8 @@ import { AirforceService, ArmyService, DefunctService } from '../services/bcatp.
 import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp';
 import { AppState } from '../state/app.state';
 import { Store } from '@ngrx/store';
-import {  EditBcatp,  EditNavy,  EditDewline,  EditPinetree } from '../state/actions/bcatp.actions';
-import { EditMidCanada,  EditAirforce,  EditArmy,  EditDefunct,  } from '../state/actions/bcatp.actions';
+import { EditBcatp, EditNavy, EditDewline, EditPinetree } from '../state/actions/bcatp.actions';
+import { EditMidCanada, EditAirforce, EditArmy, EditDefunct, } from '../state/actions/bcatp.actions';
 import { Location } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
@@ -143,9 +143,9 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
     }
 
     this.mapsAPILoader.load().then(() => {
-      this.name.setValue('Calgary');
-      this.latitude.setValue(51.09831098319883);
-      this.longitude.setValue(-114.01218795776366);
+      //this.name.setValue('Calgary');
+      //this.latitude.setValue(51.09831098319883);
+      //this.longitude.setValue(-114.01218795776366);
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
 
@@ -188,7 +188,7 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
   }
 
   getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ 'location': { lat3: latitude, lng3: longitude } }, (results, status) => {      
+    this.geoCoder.geocode({ 'location': { lat3: latitude, lng3: longitude } }, (results, status) => {
       if (status === 'OK') {
         if (results[0]) {
           this.address = results[0].formatted_address;
@@ -223,10 +223,10 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
 
     if (!this.FormName.valid) {
       return;
-    } 
+    }
 
-  
-      if (this.title === 'Edit') {
+
+    if (this.title === 'Edit') {
       switch (this.formname) {
         case 'Bcatp':
           this.store.dispatch(EditBcatp({ bcatp: this.FormName.value }));
@@ -257,10 +257,10 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
     this.location.back();
   }
 
-  cancel() { 
+  cancel() {
     {
       this.title = '';
-      this._router.navigate(['/fetch-bcatp']); 
+      this._router.navigate(['/fetch-bcatp']);
     }
   }
 
