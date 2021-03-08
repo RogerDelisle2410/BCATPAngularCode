@@ -1,4 +1,4 @@
-   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <form [formGroup]="FormName3" (ngSubmit)="save()" #formDir="ngForm" novalidate > <!--novalidate>-->
    <div class="container">
 
@@ -7,11 +7,11 @@
          <div class="form-group row">
            <label class=" control-label col-md-12">Name</label>
            <div class="col-md-10">
-             <input class="form-control" placeholder="name" type="text" id="name" formControlName="name" >
+             <input class="form-control" placeholder="name" type="text" id="name" formControlName="name" > <!--value="{{address}}"/>-->
            </div>
-           <span class="text-danger" *ngIf="name?.invalid && formDir.submitted">
+            <!--<span class="text-danger" *ngIf="name2?.invalid && formDir.submitted">
              Name is required.
-           </span>
+           </span>-->
          </div>
          <div class="form-group row">
            <label class="control-label col-md-12" for="Latitude">Latitude</label>
@@ -26,7 +26,7 @@
            <label class="control-label col-md-12" for="Longitude">Longitude</label>
            <div class="col-md-10">
              <input class="form-control" placeholder="longitude" type="number" id="longitude" formControlName="longitude" value="{{longitude}}"/> <!--value="{{longitude}}"  -->
-           </div> 
+           </div>
            <!--<span class="text-danger" *ngIf="longitude.invalid && formDir.submitted">
              Longitude is required
            </span>-->
@@ -65,5 +65,5 @@
        <button type="submit" class=" btn btn-primary">Save</button> <!--//Roger for Azure disabled-->
        <button class="btn btn-danger" (click)="cancel()">Cancel</button>
      </footer>
- 
+
    </form>

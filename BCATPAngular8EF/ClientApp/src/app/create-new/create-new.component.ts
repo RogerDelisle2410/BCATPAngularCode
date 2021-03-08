@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router, RouterStateSnapshot } from '@angular/router';
 import { BcatpService, NavyService, DewlineService, PinetreeService, MidCanadaService } from '../services/bcatp.service';
 import { AirforceService, ArmyService, DefunctService } from '../services/bcatp.service';
-import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp'; 
+import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp';
 import { AppState } from '../state/app.state';
 import { Store } from '@ngrx/store';
 import { AddBcatp, AddNavy, AddDewline, AddPinetree } from '../state/actions/bcatp.actions';
@@ -24,6 +24,7 @@ import { FetchDataComponent } from '../fetch-data/fetch-data.component';
 export class CreateBcatpComponent implements OnInit, OnDestroy {
   FormName3: FormGroup;
   title = 'Create';
+ 
   latitude: number;
   longitude: number;
   id: number;
@@ -90,6 +91,7 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.nameSubscription = this.FormName3.get('name').valueChanges.subscribe();
     this.latSubscription = this.FormName3.get('latitude').valueChanges.subscribe();
     this.lngSubscription = this.FormName3.get('longitude').valueChanges.subscribe();
 
@@ -143,7 +145,7 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
 
 
     this.mapsAPILoader.load().then(() => {
-      //this.name.setValue('Calgary');
+      //this.nm.setValue('Calgary');
       //this.lat.setValue(51.09831098319883);
       //this.lng.setValue(-114.01218795776366);
       this.setCurrentLocation();
@@ -156,13 +158,16 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
             return;
           }
 
+          this.name2 = place.formatted_address
+          this.name2 = this.name2.split(',')[0];
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
 
+          this.nm.setValue(this.name2);
           this.lat.setValue(this.latitude);
           this.lng.setValue(this.longitude);
 
-          this.zoom = 18;
+          this.zoom = 12;
         });
       });
     });
@@ -171,10 +176,12 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
+      //this.name2 = position.
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
-        this.zoom = 18;
+        this.zoom = 12;
 
+        this.FormName3.value('name').value = this.nm;
         this.FormName3.value('latitude').value = this.lat;
         this.FormName3.value('longitude').value = this.lng;
 
@@ -206,6 +213,7 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
 
   markerDragEnd($event: MouseEvent) {
     console.log($event);
+    this.name2 = $event.placeId;
     this.latitude = $event.coords.lat;
     this.longitude = $event.coords.lng;
     this.getAddress(this.latitude, this.longitude);
@@ -220,35 +228,35 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
       switch (this.formname3) {
         case 'Bcatp':
           this.store.dispatch(AddBcatp({ bcatp: this.FormName3.value }));
-          this._router.navigateByUrl('/fetch-data/Bcatp1/bcatp1');
+          this._router.navigateByUrl('/fetch-data/Bcatp/bcatp');
           break;
         case 'Navy':
           this.store.dispatch(AddNavy({ navy: this.FormName3.value }));
-          this._router.navigateByUrl('/fetch-navy/Navy1/navy1');
+          this._router.navigateByUrl('/fetch-navy/Navy/navy');
           break;
         case 'Dewline':
           this.store.dispatch(AddDewline({ dewline: this.FormName3.value }));
-          this._router.navigateByUrl('/fetch-dewline/Dewline1/dewline1');
+          this._router.navigateByUrl('/fetch-dewline/Dewline/dewline');
           break;
         case 'Pinetree':
           this.store.dispatch(AddPinetree({ pinetree: this.FormName3.value }));
-          this._router.navigateByUrl('/fetch-pinetree/Pinetree1/pinetree1');
+          this._router.navigateByUrl('/fetch-pinetree/Pinetree/pinetree');
           break;
         case 'MidCanada':
           this.store.dispatch(AddMidCanada({ midcanada: this.FormName3.value }));
-          this._router.navigateByUrl('/fetch-midcanada/MidCanada1/midcanada1');
+          this._router.navigateByUrl('/fetch-midcanada/MidCanada/midcanada');
           break;
         case 'Army':
           this.store.dispatch(AddArmy({ army: this.FormName3.value }));
-          this._router.navigateByUrl('/fetch-army/Army1/army1');
+          this._router.navigateByUrl('/fetch-army/Army/army');
           break;
         case 'Airforce':
           this.store.dispatch(AddAirforce({ airforce: this.FormName3.value }));
-          this._router.navigateByUrl('/fetch-airforce/Airforce1/airforce1');
+          this._router.navigateByUrl('/fetch-airforce/Airforce/airforce');
           break;
         case 'Defunct':
           this.store.dispatch(AddDefunct({ defunct: this.FormName3.value }));
-          this._router.navigateByUrl('/fetch-defunct/Defunct1/defunct1');
+          this._router.navigateByUrl('/fetch-defunct/Defunct/defunct');
           break;
       }
     }
@@ -260,7 +268,7 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
     this.location.back();
   }
 
-  get name() { return this.FormName3.get('name'); }
+  get nm() { return this.FormName3.get('name'); }
   get lng() { return this.FormName3.get('longitude'); }
   get lat() { return this.FormName3.get('latitude'); }
   get comment() { return this.FormName3.get('comment'); }
