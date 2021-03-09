@@ -8,12 +8,19 @@ import { Component } from '@angular/core';
 
 export class NavMenuComponent {
   isExpanded = false;
+/*  loading = false;*/
 
   collapse() {
-    this.isExpanded = false;
+    this.isExpanded = false;  
   }
 
   toggle() {
     this.isExpanded = !this.isExpanded;
+   
   }
+
+  //button() {
+  //  this.loading = true;
+  //}
+
 }

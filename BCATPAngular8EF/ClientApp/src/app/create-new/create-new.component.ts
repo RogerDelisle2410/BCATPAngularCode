@@ -58,8 +58,7 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
     private _ArmyService: ArmyService,
     private _DefunctService: DefunctService,
     private _router: Router,
-    private store: Store<AppState>,
-    /*    private router: Router,*/
+    private store: Store<AppState>, 
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone
   ) {
