@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import { Bcatp, Navy, Dewline } from 'src/models/bcatp';
 import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../state/app.state';
 import { Observable } from 'rxjs';
-// tslint:disable-next-line: max-line-length
-// import { FetchBcatp, DeleteBcatp, FetchNavy, DeleteNavy, FetchDewline, DeleteDewline } from 'src/app/state/actions/bcatp.actions';
-// tslint:disable-next-line: max-line-length
 import { FetchBcatp, DeleteBcatp, FetchNavy, DeleteNavy, FetchDewline, DeleteDewline, FetchPinetree, DeletePinetree, FetchMidCanada, DeleteMidCanada, FetchAirforce, DeleteAirforce, FetchArmy, DeleteArmy, FetchDefunct, DeleteDefunct } from 'src/app/state/actions/bcatp.actions';
 import { getBcatps } from 'src/app/state/reducers/bcatp.reducer';
 import { getNavys } from 'src/app/state/reducers/navy.reducer';
@@ -20,15 +16,13 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html',
   styleUrls: ['./fetch-data.component.css']
 })
 
-export class FetchDataComponent implements OnInit {
- 
+export class FetchDataComponent implements OnInit { 
   loading$: Observable<Boolean>;
   error$: Observable<Error>;
 
@@ -53,11 +47,7 @@ export class FetchDataComponent implements OnInit {
   searchText: string;
   wiki: string;
   mapType = 'satellite';
-  zoom = 13;
-
- 
-
-  // tslint:disable-next-line: max-line-length
+  zoom = 13; 
   constructor(private modalService: NgbModal, private _avRoute: ActivatedRoute, private store: Store<AppState>, private location: Location) {
     if (this._avRoute.snapshot.params['formname']) {
       this.formname = this._avRoute.snapshot.params['formname'];
@@ -65,13 +55,11 @@ export class FetchDataComponent implements OnInit {
     if (this._avRoute.snapshot.params['formname2']) {
       this.formname2 = this._avRoute.snapshot.params['formname2'];
     }
-
   }
 
   ngOnInit() {    
     switch (this.formname) {
-      case 'Bcatp':
-        this.loading = true;
+      case 'Bcatp':       
         this.store.dispatch(FetchBcatp());
         this.bcatpList = this.store.pipe(select(getBcatps));
         this.astring$ = this.bcatpList;

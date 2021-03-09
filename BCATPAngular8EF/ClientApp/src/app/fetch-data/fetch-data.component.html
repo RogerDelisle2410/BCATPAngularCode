@@ -9,6 +9,10 @@
   </div>
 </ng-template>
 
+<!--<select ngModel="columns" ngoptions="e for e in headers">
+  <option value="name"></option>
+</select>-->
+
 <div class="row">
   <nav style="text-align:center; align-content:center;" class='container  navbar navbar-expand-sm     center'>
     <div class="search-hero col-lg-5" style="display:inline-block;">
@@ -20,7 +24,7 @@
     </div>
 
     <div class="col-lg-5">
-      <a style="display:inline-block;" [routerLink]='["/bcatp/add", formname]' ><h5>Create</h5></a>
+      <a style="display:inline-block;" [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></a>
     </div>
   </nav>
 </div>
@@ -31,9 +35,12 @@
 
     <table class="table">
 
+      <!--<tr *ngFor="let listItem of this.astring$ | async | filter:searchText  |  paginate:  { itemsPerPage: 6, currentPage: page }; let i = index">-->
+
       <tr *ngFor="let listItem of this.astring$ | async | filter:searchText |  paginate:  { itemsPerPage: 6, currentPage: page }; let i = index">
 
-        <app-display-data [crib]="listItem"> </app-display-data>
+
+        <app-display-data [crib]="listItem"></app-display-data>
 
         <td style="width: 15%;">
 

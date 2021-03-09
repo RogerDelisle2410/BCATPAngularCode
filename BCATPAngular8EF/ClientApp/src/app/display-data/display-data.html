@@ -5,7 +5,7 @@
     <tr>
       <!--<td style="visibility: hidden; width: 1px; border-style: solid; border-color: blue;">{{ crib.id }}</td>-->
 
-      <ng-template *ngIf="crib.wiki; then showBlock; else notShowBlock" ></ng-template>
+      <ng-template *ngIf="crib.wiki; then showBlock; else notShowBlock"></ng-template>
 
       <ng-template #showBlock>
         <td style="width: 20%; "> <a href='{{crib.wiki}}' target="_blank">{{crib.name}}</a></td>
@@ -22,3 +22,4 @@
 
   </table>
 </div>
+<!--word-wrap: break-word;-->
