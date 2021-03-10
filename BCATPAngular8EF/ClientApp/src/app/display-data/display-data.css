@@ -1,45 +1,47 @@
-/*.grad1 {
-  background: blue;*/ /* For browsers that do not support gradients */
-  /*background: -webkit-linear-gradient(lightgray, gray);*/ /* For Safari 5.1 to 6.0 */
-  /*background: -o-linear-gradient(lightgray, gray);*/ /* For Opera 11.1 to 12.0 */
-  /*background: -moz-linear-gradient(lightgray, gray);*/ /* For Firefox 3.6 to 15 */
-  /*background: linear-gradient(lightgray, gray);*/ /* Standard syntax (must be last) */
-/*}*/
+.truncate-cell {
+/*  max-width: 60px;*/ /* feel free to include any other value */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
+.mat-cell {
+  text-align: center;
+  justify-content: center;
+}
 
 tr:hover {
 /*  background-color: #f2f2f2;*/
 }
 
 table {
-  width: 100%; 
-  table-layout: fixed;
-  margin-left: 10px;
-  margin-right: 10px;
+ /* width: 100%;*/ 
+ /* table-layout: fixed;*/
+/*  margin-left: 14px;
+  margin-right: 30px;*/
   font-size: 14px;
-  /*text-overflow: ellipsis;*/
-  line-height:10px;
+  text-overflow: ellipsis;
+/*  line-height:5px;*/
+ /* border-style:solid;*/
 } 
 
-tr {
+/*tr {
   text-align-last: left;
-}
+}*/
 
 /*th {
   height: 10px;
 }*/
 
-td {
+/* td { 
   height: 7px;
   font-size: 14px;
   font-family: Roboto;
+}*/
 
-
-}
-
-a {
+/*a {
   height: 7px;
   font-size: 14px;
   font-family: Roboto;
-}
+}*/
  
