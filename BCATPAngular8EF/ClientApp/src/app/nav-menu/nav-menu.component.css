@@ -19,11 +19,10 @@ html {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-.active {
+/*.active {
   background: lightblue;
+}*/
 
-
-}
 .center {
   margin: auto;
   width: 80%; 

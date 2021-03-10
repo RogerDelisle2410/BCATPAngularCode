@@ -1,5 +1,5 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0"  >
-<form [formGroup]="FormName" (ngSubmit)="save()" #formDir="ngForm" novalidate  >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<form [formGroup]="FormName" (ngSubmit)="save()" #formDir="ngForm" novalidate>
   <div class="container grad1">
 
     <div class=row>
@@ -53,18 +53,24 @@
           <agm-marker [latitude]='lat3' [longitude]='lng3' [markerDraggable]="true"
                       (dragEnd)="markerDragEnd($event)"></agm-marker>
         </agm-map>
-      </div>
 
+
+        <footer style="float: right; display: block;  ">
+          <button type="submit" class=" btn btn-primary">Save</button>
+          <!--//Roger for Azure disabled-->
+          <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+        </footer>
+      </div>
     </div>
   </div>
 
   <!--<h5>Address: {{address}}</h5>
   <div>Latitude: {{lat3}}</div>
   <div>Longitude: {{lng3}}</div>-->
-
-  <footer style="float: right; display: block;  ">
-    <button type="submit" class=" btn btn-primary">Save</button> <!--//Roger for Azure disabled-->
-    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
-  </footer>
+  <!--<footer style="float: right; display: block;  ">
+    <button type="submit" class=" btn btn-primary">Save</button>-->
+  <!--//Roger for Azure disabled-->
+  <!--<button class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </footer>-->
 
 </form>
