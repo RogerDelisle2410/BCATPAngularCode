@@ -16,6 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html',
@@ -41,8 +42,8 @@ export class FetchDataComponent implements OnInit {
   formname: string;
   formname2: string;
   name: string;
-  lat: number;
-  lng: number;
+  lat: number | 6;
+  lng: number | 6;
   comment: string;
   searchText: string;
   wiki: string;
@@ -126,7 +127,7 @@ export class FetchDataComponent implements OnInit {
   }
 
   delete(id, name) {
-    const ans = confirm('Do you want to delete: ' + name);
+    const ans = confirm('Do you want to delete: ' + name + ' ' + id);
     if (ans) {
       switch (this.formname) {
         case 'Bcatp':

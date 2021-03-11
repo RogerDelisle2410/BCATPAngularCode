@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var testing_1 = require("@angular/core/testing");
-var add_edit_component_1 = require("./add-edit.component");
+var add_edit_component_1 = require("./edit-data.component");
 describe('AddBcatpComponent', function () {
     var component;
     var fixture;
@@ -19,5 +19,4 @@ describe('AddBcatpComponent', function () {
     it('should create', function () {
         expect(component).toBeTruthy();
     });
-});
-//# sourceMappingURL=add-edit.component.spec.js.map
+}); 

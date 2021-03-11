@@ -19,7 +19,7 @@ namespace BCATPAngular8EF.DataAccess
         {
             try
             {
-                return dbBcatp.TblBcatp.ToList().OrderBy(x => x.Id);
+                return dbBcatp.TblBcatp.ToList().OrderBy(x => x.Name);
             }
             catch
             {
@@ -102,7 +102,7 @@ namespace BCATPAngular8EF.DataAccess
         {
             try
             {
-                return dbNavy.TblNavy.ToList().OrderBy(x => x.Id);
+                return dbNavy.TblNavy.ToList().OrderBy(x => x.Name);
             }
             catch
             {
@@ -185,7 +185,7 @@ namespace BCATPAngular8EF.DataAccess
         {
             try
             {
-                return dbDewline.TblDewline.ToList().OrderBy(x => x.Id);
+                return dbDewline.TblDewline.ToList().OrderBy(x => x.Name);
             }
             catch
             {
@@ -268,7 +268,7 @@ namespace BCATPAngular8EF.DataAccess
         {
             try
             {
-                return dbPinetree.TblPinetree.ToList().OrderBy(x => x.Id);
+                return dbPinetree.TblPinetree.ToList().OrderBy(x => x.Name);
             }
             catch
             {
@@ -351,7 +351,7 @@ namespace BCATPAngular8EF.DataAccess
         {
             try
             {
-                return dbMidCanada.TblMidCanada.ToList().OrderBy(x => x.Id);
+                return dbMidCanada.TblMidCanada.ToList().OrderBy(x => x.Name);
             }
             catch
             {
@@ -434,7 +434,7 @@ namespace BCATPAngular8EF.DataAccess
         {
             try
             {
-                return dbAirforce.TblAirforce.ToList().OrderBy(x => x.Id);
+                return dbAirforce.TblAirforce.ToList().OrderBy(x => x.Name);
             }
             catch
             {
@@ -519,7 +519,7 @@ namespace BCATPAngular8EF.DataAccess
         {
             try
             {
-                return dbArmy.TblArmy.ToList().OrderBy(x => x.Id);
+                return dbArmy.TblArmy.ToList().OrderBy(x => x.Name);
             }
             catch
             {
@@ -605,7 +605,7 @@ namespace BCATPAngular8EF.DataAccess
         {
             try
             {
-                return dbDefunct.TblDefunct.ToList().OrderBy(x => x.Id);
+                return dbDefunct.TblDefunct.ToList().OrderBy(x => x.Name);
             }
             catch
             {

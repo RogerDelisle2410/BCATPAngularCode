@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddBcatpComponent } from './add-edit.component';
+import { AddBcatpComponent } from './edit-data.component';
 
 describe('AddBcatpComponent', () => {
   let component: AddBcatpComponent;

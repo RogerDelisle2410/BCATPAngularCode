@@ -17,7 +17,7 @@ var app_component_1 = require("./app.component");
 var nav_menu_component_1 = require("./nav-menu/nav-menu.component");
 var home_component_1 = require("./home/home.component");
 var fetch_data_component_1 = require("./fetch-data/fetch-data.component");
-var add_edit_component_1 = require("./add-edit/add-edit.component");
+var edit_data_component_1 = require("./edit-data/edit-data.component");
 var create_new_component_1 = require("./create-new/create-new.component");
 var display_data_1 = require("./display-data/display-data");
 var header_component_1 = require("./header/header.component");
@@ -47,7 +47,7 @@ var AppModule = /** @class */ (function () {
                 nav_menu_component_1.NavMenuComponent,
                 home_component_1.HomeComponent,
                 fetch_data_component_1.FetchDataComponent,
-                add_edit_component_1.AddBcatpComponent,
+                edit_data_component_1.AddBcatpComponent,
                 create_new_component_1.CreateBcatpComponent,
                 display_data_1.DataComponent,
                 header_component_1.HeaderComponent
@@ -83,7 +83,7 @@ var AppModule = /** @class */ (function () {
                     { path: 'fetch-airforce/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
                     { path: 'fetch-army/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
                     { path: 'fetch-defunct/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
-                    { path: 'bcatp/edit/:formname/:id/:name/:latitude/:longitude', component: add_edit_component_1.AddBcatpComponent },
+                    { path: 'bcatp/edit/:formname/:id/:name/:latitude/:longitude', component: edit_data_component_1.AddBcatpComponent },
                     { path: 'bcatp/add/:formname3', component: create_new_component_1.CreateBcatpComponent },
                 ])
             ],

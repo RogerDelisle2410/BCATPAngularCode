@@ -19,5 +19,4 @@ describe('AddBcatpComponent', function () {
     it('should create', function () {
         expect(component).toBeTruthy();
     });
-});
-//# sourceMappingURL=add-edit.component.spec.js.map
+}); 

@@ -14,9 +14,9 @@ import { Subscription } from 'rxjs';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
 
 @Component({
-  selector: 'app-add-edit',
-  templateUrl: './add-edit.component.html',
-  styleUrls: ['./add-edit.component.css']
+  selector: 'app-edit-data',
+  templateUrl: './edit-data.component.html',
+  styleUrls: ['./edit-data.component.css']
 })
 export class AddBcatpComponent implements OnInit, OnDestroy {
   FormName: FormGroup;
@@ -27,8 +27,8 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
   name2: string;
 
 
-  lat: number;
-  lng: number;
+  lat: number | 6;
+  lng: number | 6;
   mapType = 'satellite';
   zoom = 13;
   address: string;
@@ -179,9 +179,10 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
 
+        //this.FormName.value('latitude').value = this.lat.toFixed(6);
+        //this.FormName.value('longitude').value = this.lng.toFixed(6);
         this.FormName.value('latitude').value = this.lat;
         this.FormName.value('longitude').value = this.lng;
-
         // this.getAddress(this.lat, this.lng);
       });
     }
@@ -213,8 +214,8 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
     this.lng = $event.coords.lng;
     this.address = $event.placeId;
 
-    this.latitude.setValue(this.lat);
-    this.longitude.setValue(this.lng);
+    this.latitude.setValue(this.lat.toFixed(6));
+    this.longitude.setValue(this.lng.toFixed(6));
     // this.name.setValue(this.address);
     this.getAddress(this.latitude, this.longitude);
   }

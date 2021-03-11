@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { AddBcatpComponent } from './add-edit/add-edit.component';
+import { AddBcatpComponent } from './edit-data/edit-data.component';
 import { CreateBcatpComponent } from './create-new/create-new.component';
 import { DataComponent } from './display-data/display-data';
 import { HeaderComponent } from './header/header.component';

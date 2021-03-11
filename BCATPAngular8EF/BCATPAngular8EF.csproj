@@ -170,7 +170,7 @@
     <None Remove="ClientApp\dist\runtime-es5.5d248a55231dbc94e56e.js" />
     <None Remove="ClientApp\dist\styles.eee70b2a93e156fddb47.css" />
     <None Remove="ClientApp\src\app.js" />
-    <None Remove="ClientApp\src\app\add-edit\common.component.html" />
+    <None Remove="ClientApp\src\app\edit-data\common.component.html" />
     <None Remove="ClientApp\src\app\add-dewline\add-dewline.component.css" />
     <None Remove="ClientApp\src\app\add-dewline\add-dewline.component.html" />
     <None Remove="ClientApp\src\app\add-dewline\add-dewline.component.spec.ts" />

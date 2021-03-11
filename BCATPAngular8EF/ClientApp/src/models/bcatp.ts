@@ -1,8 +1,8 @@
 export class Bcatp {
   id: number;
   name: string;
-  longitude: number;
-  latitude: number;
+  longitude: number | 6;
+  latitude: number | 6;
   comment: string;
   wiki: string;
 }
@@ -10,8 +10,8 @@ export class Bcatp {
 export class Navy {
   id: number;
   name: string;
-  Longitude: number;
-  Latitude: number;
+  Longitude: number | 6;
+  Latitude: number | 6;
   Comment: string;
   Wiki: string;
 }
@@ -19,8 +19,8 @@ export class Navy {
 export class Dewline {
   id: number;
   name: string;
-  Longitude: number;
-  Latitude: number;
+  Longitude: number | 6;
+  Latitude: number | 6;
   Comment: string;
   Wiki: string;
 }
@@ -28,8 +28,8 @@ export class Dewline {
 export class MidCanada {
   id: number;
   name: string;
-  longitude: number;
-  latitude: number;
+  longitude: number | 6;
+  latitude: number | 6;
   comment: string;
   wiki: string;
 }
@@ -37,8 +37,8 @@ export class MidCanada {
 export class Pinetree {
   id: number;
   name: string;
-  longitude: number;
-  latitude: number;
+  longitude: number | 6;
+  latitude: number | 6;
   comment: string;
   wiki: string;
 }
@@ -46,8 +46,8 @@ export class Pinetree {
 export class Airforce {
   id: number;
   name: string;
-  longitude: number;
-  latitude: number;
+  longitude: number | 6;
+  latitude: number | 6;
   comment: string;
   wiki: string;
 }
@@ -55,8 +55,8 @@ export class Airforce {
 export class Army {
   id: number;
   name: string;
-  longitude: number;
-  latitude: number;
+  longitude: number | 6;
+  latitude: number | 6;
   comment: string;
   wiki: string;
 }
@@ -64,8 +64,8 @@ export class Army {
 export class Defunct {
   id: number;
   name: string;
-  longitude: number;
-  latitude: number;
+  longitude: number | 6;
+  latitude: number | 6;
   comment: string;
   wiki: string;
 }

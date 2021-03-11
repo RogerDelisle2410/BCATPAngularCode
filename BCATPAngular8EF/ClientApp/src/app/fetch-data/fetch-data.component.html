@@ -12,7 +12,7 @@
 
 </ng-template>
 
-<div class="row  grad1">
+<div class="row  grad1" style="height:40px;">
   <nav style="text-align:center; align-content:center;" class='container  navbar navbar-expand-sm     center'>
     <div class="search-hero col-lg-5" style="display:inline-block;">
       <input class="form-control" style="width:200px; height:25px; display:inline-block; margin-bottom:10px" type="search" #filterName name="filterName" [(ngModel)]="searchText" placeholder="Search" id="myInput"> &nbsp;
@@ -34,7 +34,7 @@
 
     <table class="table grad1 col-lg-12" style="">
 
-      <tr *ngFor="let listItem of this.astring$ | async | filter:searchText |  paginate:  { itemsPerPage: 11, currentPage: page }; let i = index">
+      <tr *ngFor="let listItem of this.astring$ | async | filter:searchText |  paginate:  { itemsPerPage: 12, currentPage: page   }; let i = index">
 
         <app-display-data [crib]="listItem" class="  grad1" style="line-height:4px;"></app-display-data>
 

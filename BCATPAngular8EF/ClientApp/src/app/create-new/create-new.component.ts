@@ -25,8 +25,8 @@ export class CreateBcatpComponent implements OnInit, OnDestroy {
   FormName3: FormGroup;
   title = 'Create';
  
-  latitude: number;
-  longitude: number;
+  latitude: number | 6;
+  longitude: number | 6;
   id: number;
   formname3: string;
   name2: string;
