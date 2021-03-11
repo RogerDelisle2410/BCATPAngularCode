@@ -49,6 +49,12 @@
         <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [mapTypeId]='mapType' [fullscreenControl]='true' [mapTypeControl]='true'>
           <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
         </agm-map>
+
+        <footer style="float: right; display: block;  ">
+          <button type="submit" class=" btn btn-primary">Save</button> <!--//Roger for Azure disabled-->
+          <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+        </footer>
+
       </div>
     </div>
   </div>
@@ -57,9 +63,9 @@
   <div>Latitude: {{latitude}}</div>
   <div>Longitude: {{longitude}}</div>-->
 
-  <footer style="float: right; display: block;  ">
-    <button type="submit" class=" btn btn-primary">Save</button> <!--//Roger for Azure disabled-->
-    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
-  </footer>
+  <!--<footer style="float: right; display: block;  ">
+    <button type="submit" class=" btn btn-primary">Save</button>--> <!--//Roger for Azure disabled-->
+    <!--<button class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </footer>-->
 
 </form>
