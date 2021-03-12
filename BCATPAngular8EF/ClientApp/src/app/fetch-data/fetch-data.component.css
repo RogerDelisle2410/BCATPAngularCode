@@ -56,12 +56,15 @@ a {
   font-size: 14px;
 }
 
+
+
 button {
   height: 30px;
   display: inline-block;
   margin-top: -13px;
   margin-bottom: -15px;
-  margin-left: 5px;
+  margin-left: 7px;
+  display: inline-block;
 }
 
 btn {
@@ -80,4 +83,16 @@ btn {
   width: auto;
   height: auto;
   /* min-width: 300px;*/
+}
+
+/*#outer {
+  width: 100%;
+  text-align: right;
+}*/
+
+.inner {
+  display: inline-block;
+
+
+
 }

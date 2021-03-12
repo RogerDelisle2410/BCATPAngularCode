@@ -38,4 +38,32 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: -o-linear-gradient(lightblue, blue); /*For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(lightblue, blue); /* For Firefox 3.6 to 15 */
   background: linear-gradient(lightblue, blue); /*Standard syntax (must be last)  */
-} 
+}
+
+.my-button {
+  position: relative;
+}
+
+  .my-button:hover::after {
+    position: absolute;
+    content: attr(data-tooltip);
+    bottom: -1.5em;
+    right: -20em;
+    width:300px;
+    background-color: #333;
+    color: white;
+    /* padding: .25em .5em;*/
+  }
+
+/*.my-button2 {
+  position: relative;
+}
+  .my-button2:hover::after {
+    position: absolute;
+    content: attr(data-tooltip);
+    bottom: 2em;
+    right: 1em;
+    background-color: #333;
+    color: white;
+    padding: .25em .5em;
+  }*/

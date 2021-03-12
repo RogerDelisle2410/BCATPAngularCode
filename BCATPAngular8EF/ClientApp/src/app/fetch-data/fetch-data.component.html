@@ -4,56 +4,55 @@
     <h5>{{name}}</h5>
     <agm-map [latitude]='lat' [longitude]='lng' [zoom]="zoom" [mapTypeId]='mapType' [fullscreenControl]='true' [mapTypeControl]='true'>
       <agm-marker [latitude]='lat' [longitude]='lng' [label]='location.title'></agm-marker>
-    </agm-map> 
+    </agm-map>
     <footer style="float: right; display: block; height:30px; ">
       <button class="btn btn-danger" style=" float: right; margin-top:5px" (click)="modal.close()">Cancel</button>
     </footer>
   </div>
-
 </ng-template>
 
-<div class="row  grad1" style="height:40px;">
-  <nav style="text-align:center; align-content:center;" class='container  navbar navbar-expand-sm     center'>
-    <div class="search-hero col-lg-5" style="display:inline-block;">
-      <input class="form-control" style="width:200px; height:25px; display:inline-block; margin-bottom:10px" type="search" #filterName name="filterName" [(ngModel)]="searchText" placeholder="Search" id="myInput"> &nbsp;
-    </div>
+<div class="row  grad1" style="height:auto;">
+  <table style="width: 100%; ">
+    <tr>
+      <td style="text-align:center; align-content:center;" class='container  navbar navbar-expand-sm     center'>
+        <div class="search-hero col-lg-5" style="display:inline-block;">
+          <input class="form-control" style="width:200px; height:25px; display:inline-block; margin-bottom:10px" type="search" #filterName name="filterName" [(ngModel)]="searchText" placeholder="Search" id="myInput"> &nbsp;
+        </div>
 
-    <div class="col-lg-2">
-      <a href='{{wikiLink}}' target="_blank" style="text-decoration: underline; color: blue;"><h4>{{formname}}</h4></a>
-    </div>
+        <div class="col-lg-2">
+          <a href='{{wikiLink}}' target="_blank" style="text-decoration: underline; color: blue;"><h4>{{formname}}</h4></a>
+        </div>
 
-    <div class="col-lg-5">
-      <a style="text-decoration: underline; display: inline-block; color:  blue;" [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></a>
-    </div>
-  </nav>
+        <div class="col-lg-5">
+          <a style="text-decoration: underline; display: inline-block; color:  blue;" [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></a>
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>
 
+
+
+
 <section>
-  <div class="row content grad1" id="main">
+  <div class="row content grad1" id="main" style="height:auto;">
     <app-header class="col-lg-12"></app-header>
 
-    <table class="table grad1 col-lg-12" style="">
+    <table class="table grad1 " style="width: 100%">
 
-      <tr *ngFor="let listItem of this.astring$ | async | filter:searchText |  paginate:  { itemsPerPage: 12, currentPage: page   }; let i = index">
+      <tr *ngFor="let listItem of this.astring$ | async | filter:searchText |  paginate:  { itemsPerPage: 9, currentPage: page   }; let i = index">
 
-        <app-display-data [crib]="listItem" class="  grad1" style="line-height:4px;"></app-display-data>
+        <app-display-data [crib]="listItem" class="  grad1" style="line-height:4px; width:85%; "></app-display-data>
 
-        <td class="  " style=" width: 15%; line-height:5px;">
 
-          <button style= "vertical-align: top; color: green;" [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" data-toggle="tooltip" title="Edit">
-            <mat-icon>edit</mat-icon>
-          </button>
-
-          <button style="vertical-align: top; color: red;" [routerLink]="" (click)="delete(listItem.id, listItem.name)" data-toggle="tooltip" title="Delete">
-            <mat-icon>delete</mat-icon>
-          </button>
-
-          <button style="vertical-align: top; color: blue; " [routerLink]="" (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" data-toggle="tooltip" title="Open map">
-            <mat-icon> map</mat-icon>
-          </button>
-          <!--disabled--><!--//Roger for Azure disabled-->
+        <td style="width:15%;   line-height:1em; height:auto; ">
+          <button style=" color: green" [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" type="submit"> <mat-icon>edit</mat-icon></button>
+          <button style=" color: red" [routerLink]="" (click)="delete(listItem.id, listItem.name)" type="submit"><mat-icon>delete</mat-icon></button>
+          <button style=" color: blue" [routerLink]="" (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" type="submit">  <mat-icon>map</mat-icon></button>
         </td>
 
+        <!--border-style:solid; border-color:red;-->
+        <!--disabled//Roger for Azure disabled-->
       </tr>
     </table>
   </div>

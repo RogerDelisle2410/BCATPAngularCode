@@ -23,25 +23,24 @@ table {
   text-overflow: ellipsis;
 /*  line-height:5px;*/
  /* border-style:solid;*/
-} 
+}
 
-/*tr {
-  text-align-last: left;
-}*/
+/*button {
+  height: 30px;
+  display: inline-block;
+  margin-top: -13px;
+  margin-bottom: -15px;*/
+/*  margin-left: 5px;*/
+/*}*/
 
-/*th {
-  height: 10px;
-}*/
-
-/* td { 
-  height: 7px;
-  font-size: 14px;
-  font-family: Roboto;
-}*/
-
-/*a {
-  height: 7px;
-  font-size: 14px;
-  font-family: Roboto;
-}*/
- 
+button {
+  height: 30px;
+  display: inline-block;
+  margin-top: -13px;
+  margin-bottom: -15px;
+  margin-left: 7px;
+  display: inline-block;
+}
+.inner {
+  display: inline-block;
+}

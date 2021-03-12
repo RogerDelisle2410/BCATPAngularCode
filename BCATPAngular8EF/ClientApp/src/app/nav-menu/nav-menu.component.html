@@ -25,18 +25,19 @@
       <!--<button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading" (click)="save()">Save</button>-->
       <!--[class.spinner]="loading" [disabled]="loading"-->
 
-      <button type="button" style="width:100px" [routerLink]='["/fetch-data", "Bcatp","bcatp"]' routerLinkActive="active" data-toggle="tooltip" title="British Commonwealth Air Training Plan">Bcatp</button>
-      <button type="button" style="width:100px" [routerLink]="['/fetch-army', 'Army','army']" routerLinkActive="active" data-toggle="tooltip" title="Canadian Forces Base">Army</button>
-      <button type="button" style="width:100px" [routerLink]="['/fetch-airforce', 'Airforce','airforce']" routerLinkActive="active" data-toggle="tooltip" title="Royal Canadian Air Force">Air Force</button>
-      <button type="button" style="width:100px" [routerLink]='["/fetch-navy", "Navy","navy"]' routerLinkActive="active" data-toggle="tooltip" title="Royal Canadian Navy">Navy</button>
-      <button type="button" style="width:100px" [routerLink]="['/fetch-dewline', 'Dewline','dewline']" routerLinkActive="active" data-toggle="tooltip" title="Distant Early Warning Line">DewLine</button>
-      <button type="button" style="width:100px" [routerLink]="['/fetch-pinetree', 'Pinetree','pinetree']" routerLinkActive="active" data-toggle="tooltip" title="Pinetree Line">Pinetree</button>
-      <button type="button" style="width:100px" [routerLink]="['/fetch-midcanada', 'MidCanada','midcanada']" routerLinkActive="active" data-toggle="tooltip" title="Mid-Canada Line">Mid CDN</button>
-      <button type="button" style="width:100px" [routerLink]="['/fetch-defunct', 'Defunct','defunct']" routerLinkActive="active" data-toggle="tooltip" title="Defunct Canadian military bases">Defunct</button>
+      <button class="my-button" type="button" style="width:100px" [routerLink]='["/fetch-data", "Bcatp","bcatp"]' routerLinkActive="active"  data-tooltip="British Commonwealth Air Training Plan">Bcatp</button>
+      <button class="my-button" type="button" style="width:100px" [routerLink]="['/fetch-army', 'Army','army']" routerLinkActive="active"  data-tooltip="Canadian Forces Base">Army</button>
+      <button class="my-button" type="button" style="width:100px" [routerLink]="['/fetch-airforce', 'Airforce','airforce']" routerLinkActive="active"  data-tooltip="Royal Canadian Air Force">Air Force</button>
+      <button class="my-button" type="button" style="width:100px" [routerLink]='["/fetch-navy", "Navy","navy"]' routerLinkActive="active"  data-tooltip="Royal Canadian Navy">Navy</button>
+      <button class="my-button" type="button" style="width:100px" [routerLink]="['/fetch-dewline', 'Dewline','dewline']" routerLinkActive="active"  data-tooltip="Distant Early Warning Line">DewLine</button>
+      <button class="my-button" type="button" style="width:100px" [routerLink]="['/fetch-pinetree', 'Pinetree','pinetree']" routerLinkActive="active"  data-tooltip="Pinetree Line">Pinetree</button>
+      <button class="my-button" type="button" style="width:100px" [routerLink]="['/fetch-midcanada', 'MidCanada','midcanada']" routerLinkActive="active"  data-tooltip="Mid-Canada Line">Mid CDN</button>
+      <button class="my-button" type="button" style="width:100px" [routerLink]="['/fetch-defunct', 'Defunct','defunct']" routerLinkActive="active"  data-tooltip="Defunct Canadian military bases">Defunct</button>
 
 
     </div>
     <div class=" col-lg-1"></div>
+
   </nav>
 
 </div>

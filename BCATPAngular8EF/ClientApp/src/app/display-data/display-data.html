@@ -1,37 +1,35 @@
 <meta name="viewport " content="width=device-width, initial-scale=1.0" class="grad1">
-<div class="row">
-  <table style="width: 100%; margin-left: 15px; text-align: left !important;">
-     
-      <tr>
+<div class="row" style="height:auto;">
+  <table style="width: 100%; margin-left: 15px; text-align: left !important;   height:auto;">
+    <tr>
+      <ng-template *ngIf="crib.wiki; then showBlock; else notShowBlock"></ng-template>
 
-        <ng-template *ngIf="crib.wiki; then showBlock; else notShowBlock"></ng-template>
-
-        <ng-template #showBlock>
-          <td style="width: 27%; ">
-            <a href='{{crib.wiki}}' target="_blank" style="color: blue; text-decoration: underline; padding-left: 20px;">
+      <ng-template #showBlock>
+        <td style="width: 27%;">
+          <a href='{{crib.wiki}}' target="_blank" style="color: blue; text-decoration: underline; padding-left: 20px;  word-wrap: break-word">
             {{crib.name}}
-            </a>
-          </td>
-        </ng-template>
+          </a>
+        </td>
+      </ng-template>
 
-        <ng-template #notShowBlock>
-          <td style="width: 27%; padding-left: 30px;">
+      <ng-template #notShowBlock>
+        <td style="width: 27%; padding-left: 30px;  word-wrap: break-word ">
           {{crib.name}}
-          </td>
-        </ng-template>
-
-        <td class="truncate-cell" style="width: 32%; font-size: 12px;">
+        </td>
+      </ng-template>
+      <!--class="truncate-cell"-->
+      <td style="width:32%; font-size: 12px;  word-wrap: break-word">
         {{ crib.comment }}
-        </td>
-        <td style="width: 13%; word-wrap: break-word;">
+      </td>
+      <td style="width:10%; word-wrap: break-word;">
         {{ crib.latitude }}
-        </td>
-        <td style="width: 13%; word-wrap: break-word;">
+      </td>
+      <td style="width:10%; word-wrap: break-word;">
         {{ crib.longitude }}
-        </td>
+      </td>
 
-      </tr>
-     
+    </tr>
+
   </table>
 </div>
 <!--word-wrap: break-word;-->
