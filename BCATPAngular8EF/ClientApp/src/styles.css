@@ -18,6 +18,9 @@ code {
 * {
   font-size: 1.0rem;
 }
+.no-padding {
+  padding: 0;
+}
 
 html, body {
   height: 100%;
@@ -42,6 +45,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .my-button {
   position: relative;
+  height:35px;
+  font-size:large;
+  font-weight:bold;
 }
 
   .my-button:hover::after {
@@ -55,15 +61,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     /* padding: .25em .5em;*/
   }
 
-/*.my-button2 {
-  position: relative;
-}
-  .my-button2:hover::after {
-    position: absolute;
-    content: attr(data-tooltip);
-    bottom: 2em;
-    right: 1em;
-    background-color: #333;
-    color: white;
-    padding: .25em .5em;
-  }*/
+ 
