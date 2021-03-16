@@ -30,10 +30,11 @@ export class FetchDataComponent implements OnInit {
     'Info',
     'Latitude',
     'Longitude',
-    ' ',
-    'Edit',
-    'Del',
-    'Map'
+  /*  ' ',*/
+    'Edit - Del - Map',
+    //'Edit',
+    //'Del',
+    //'Map'
   ];
 
   loading$: Observable<Boolean>;

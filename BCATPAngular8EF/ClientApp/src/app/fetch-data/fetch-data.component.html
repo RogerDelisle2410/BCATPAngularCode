@@ -11,7 +11,7 @@
   </div>
 </ng-template>
 
-<div class="row  grad1" style="height:auto;">
+<div class="row col-lg-12 grad1" style="height:auto;">
   <table style="width: 100%; ">
     <tr>
       <td style="text-align:center; align-content:center;" class='container  navbar navbar-expand-sm     center'>
@@ -117,7 +117,7 @@
 <!--<ng-template *ngIf="listItem.wiki; then showBlock; else notShowBlock"></ng-template>
 
       <ng-template #showBlock>
-        <td style="border-style: solid; border-color: red; width: 20%;  ">
+        <td style=" width: 20%;  ">
           <a href='listItem.wiki' target="_blank" style=" color: blue; text-decoration: underline; padding-left: 20px; word-wrap: break-word">
             {{listItem.name }}
           </a>
@@ -125,12 +125,12 @@
       </ng-template>
 
       <ng-template #notShowBlock>
-        <td style="border-style: solid; border-color: red;   width: 20%; padding-left: 30px; word-wrap: break-word ">
+        <td style="   width: 20%; padding-left: 30px; word-wrap: break-word ">
           {{listItem.name }}
         </td>
       </ng-template>
 
-      <td class="" style="border-style:solid; border-color:red; text-align: left; line-height: 4px; width: 46%; font-size: 12px; ">
+      <td class="" style=" text-align: left; line-height: 4px; width: 46%; font-size: 12px; ">
         {{ listItem.comment }}
       </td>
       <td style="line-height: 4px; width: 10%; word-wrap: break-word;">
@@ -171,80 +171,79 @@
     </div>
   </div>
 </footer>-->
+ 
+<div class="row content grad1 col-lg-12" id="main" style="height:auto;">
+  <app-header class="col-lg-12"></app-header>
+  <table class="table grad1  " style="width: 100%; ">
 
-
-
-<table class="table table-striped w-auto">
-
-  <thead>
-    <tr>
+    <!--<thead style="width: 100%;">
+    <tr style="width: 100%;">
       <th *ngFor="let header of this.comparablePartyHeadersTrimmed"> {{header}}</th>
     </tr>
-  </thead>
-  <tbody>
+  </thead>-->
 
-    <tr class="grad1" *ngFor="let listItem of this.astring$ | async | filter:searchText |   paginate:  { itemsPerPage: 8, currentPage: page   }; let i = index">
-      <!--<app-display-data [crib]="listItem" class="container-fluid  grad1" style="line-height:4px; width:85%; "></app-display-data>-->
-      <ng-template *ngIf="listItem.wiki; then showBlock; else notShowBlock"></ng-template>
+    <tbody>
 
-      <ng-template #showBlock>
-        <td style="width: 20%;  ">
-          <a href='listItem.wiki' target="_blank" style=" color: blue; text-decoration: underline; padding-left: 20px; word-wrap: break-word">
+      <tr class="grad1" *ngFor="let listItem of this.astring$ | async | filter:searchText |   paginate:  { itemsPerPage: 8, currentPage: page   }; let i = index">
+        <!--<app-display-data [crib]="listItem" class="container-fluid  grad1" style="line-height:4px; width:85%; "></app-display-data>-->
+
+        <ng-template *ngIf="listItem.wiki; then showBlock; else notShowBlock"></ng-template>
+        <ng-template #showBlock>
+          <td style="width: 25%; font-size: 12px; ">
+            <a href='listItem.wiki' target="_blank" style=" color: blue; text-decoration: underline; padding-left: 20px; word-wrap: break-word">
+              {{listItem.name }}
+            </a>
+          </td>
+        </ng-template>
+        <ng-template #notShowBlock>
+          <td style="width: 25%; padding-left: 30px; word-wrap: break-word; font-size: 12px;  ">
             {{listItem.name }}
-          </a>
+          </td>
+        </ng-template>
+
+        <td class="" style="font-size: 12px; text-align: left; width: 40%; word-wrap: break-word;  ">
+          {{ listItem.comment }}
         </td>
-      </ng-template>
-
-      <ng-template #notShowBlock>
-        <td style="width: 20%; padding-left: 30px; word-wrap: break-word ">
-          {{listItem.name }}
+        <td style="font-size: 12px; width: 10%; word-wrap: break-word; ">
+          {{ listItem.latitude }}
         </td>
-      </ng-template>
-
-      <td class="" style="text-align: left; width: 46%; font-size: 12px; word-wrap: break-word;">
-        {{ listItem.comment }}
-      </td>
-      <td style=" width: 10%; word-wrap: break-word;">
-        {{ listItem.latitude }}
-      </td>
-      <td style=" width: 10%; word-wrap: break-word;">
-        {{ listItem.longitude }}
-      </td>
-      <td style="width:5%; ">
-      </td>
- 
-
-
-      <ng-container>
-        <td style=" ">
-          <button class="  " style="word-wrap: break-word; display: inline-block; color: green; " [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" type="submit">
+        <td style="font-size: 12px; width: 10%; word-wrap: break-word; ">
+          {{ listItem.longitude }}
+        </td>
+        <!--<td style="width:5%; ">
+      </td>-->
+        <td class=" " style="width:15%; ">
+          <button class="   " style="word-wrap: break-word; display: inline-block; color: green; " [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" type="submit">
             <mat-icon>edit</mat-icon>
           </button>
-        </td>
-      </ng-container>
-      <ng-container>
-        <td style=" ">
-          <button class="  " style="word-wrap: break-word; display: inline-block; color: red; " [routerLink]="" (click)="delete(listItem.id, listItem.name)" type="submit">
+          <!--</td>
+
+        <td style="word-wrap: break-word; width:5%; ">-->
+          <button class="  " style="  word-wrap: break-word; display: inline-block; color: red; " [routerLink]="" (click)="delete(listItem.id, listItem.name)" type="submit">
             <mat-icon>delete</mat-icon>
           </button>
-        </td>
-      </ng-container>
-      <ng-container>
-        <td style=" ">
-          <button class="   " style="word-wrap: break-word; display: inline-block; color: blue; " [routerLink]="" (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" type="submit">
+          <!--</td>
+
+        <td style="word-wrap: break-word; width:5%;">-->
+          <button class="  " style="  word-wrap: break-word; display: inline-block; color: blue; " [routerLink]="" (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" type="submit">
             <mat-icon>map</mat-icon>
           </button>
         </td>
-      </ng-container>
-    </tr>
-  </tbody>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-</table>
-<!--<div class="container">
-  <button type="button">Some button</button>
-  <button type="button">Button here, too...</button>
-  <button type="button">Yet another</button>
-  <button type="button">Some button</button>
-  <button type="button">Button here, too...</button>
-  <button type="button">Yet another</button>
-</div>-->
+<footer class="col-lg-12 grad2" style="font-size:x-small;">
+  <div class="footer col-lg-12 grad2 " id="footer">
+    <div class="row ">
+      <div class="col-lg-3  "></div>
+      <div class="col-lg-6  ">
+        <pagination-controls (pageChange)="page=$event"></pagination-controls>
+      </div>
+      <div class="col-lg-3  "></div>
+    </div>
+  </div>
+</footer>
+
+
