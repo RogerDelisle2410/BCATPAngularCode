@@ -37,6 +37,11 @@ var ngx_pagination_1 = require("ngx-pagination");
 var core_2 = require("@agm/core");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var icon_1 = require("@angular/material/icon");
+//import { MatInputModule } from "@angular/material/input";
+//import { MatSortModule } from "@angular/material/Sort";
+//import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+//import { MatPaginatorModule } from "@angular/material/Paginator";
+//import { MatTableModule } from "@angular/material/table";
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -53,6 +58,7 @@ var AppModule = /** @class */ (function () {
                 header_component_1.HeaderComponent
             ],
             imports: [
+                /*   MatInputModule, MatSortModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule,*/
                 ng_bootstrap_1.NgbModule,
                 platform_browser_1.BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
                 http_1.HttpClientModule,

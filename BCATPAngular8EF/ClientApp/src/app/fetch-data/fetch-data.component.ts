@@ -23,7 +23,19 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./fetch-data.component.css']
 })
 
-export class FetchDataComponent implements OnInit { 
+export class FetchDataComponent implements OnInit {
+
+  comparablePartyHeadersTrimmed = [
+    'Name',
+    'Info',
+    'Latitude',
+    'Longitude',
+    ' ',
+    'Edit',
+    'Del',
+    'Map'
+  ];
+
   loading$: Observable<Boolean>;
   error$: Observable<Error>;
 
@@ -48,7 +60,7 @@ export class FetchDataComponent implements OnInit {
   searchText: string;
   wiki: string;
   mapType = 'satellite';
-  zoom = 13; 
+  zoom = 13;
   constructor(private modalService: NgbModal, private _avRoute: ActivatedRoute, private store: Store<AppState>, private location: Location) {
     if (this._avRoute.snapshot.params['formname']) {
       this.formname = this._avRoute.snapshot.params['formname'];
@@ -56,16 +68,21 @@ export class FetchDataComponent implements OnInit {
     if (this._avRoute.snapshot.params['formname2']) {
       this.formname2 = this._avRoute.snapshot.params['formname2'];
     }
+
+
+
+
+
   }
 
-  ngOnInit() {    
+  ngOnInit() {
     switch (this.formname) {
-      case 'Bcatp':       
+      case 'Bcatp':
         this.store.dispatch(FetchBcatp());
         this.bcatpList = this.store.pipe(select(getBcatps));
         this.astring$ = this.bcatpList;
         this.wikiLink = 'https://en.wikipedia.org/wiki/British_Commonwealth_Air_Training_Plan';
-        this.loading$ = this.store.select(store => store.bcatp.loading);        
+        this.loading$ = this.store.select(store => store.bcatp.loading);
         break;
 
       case 'Navy':

@@ -28,6 +28,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconModule } from '@angular/material/icon';
+//import { MatInputModule } from "@angular/material/input";
+//import { MatSortModule } from "@angular/material/Sort";
+//import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+//import { MatPaginatorModule } from "@angular/material/Paginator";
+//import { MatTableModule } from "@angular/material/table";
+
+ 
 
 @NgModule({
   declarations: [
@@ -42,6 +49,7 @@ import { MatIconModule } from '@angular/material/icon';
   ],
 
   imports: [
+ /*   MatInputModule, MatSortModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule,*/
     NgbModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
@@ -67,7 +75,7 @@ import { MatIconModule } from '@angular/material/icon';
     RouterModule.forRoot([
 
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'fetch-home', component: HomeComponent },      
+      { path: 'fetch-home', component: HomeComponent },
 
       { path: 'fetch-data/:formname/:formname2', component: FetchDataComponent },
       { path: 'fetch-navy/:formname/:formname2', component: FetchDataComponent },
