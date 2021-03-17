@@ -198,7 +198,7 @@
         <ng-template *ngIf="listItem.wiki; then showBlock; else notShowBlock"></ng-template>
         <ng-template #showBlock>
           <td style="width: 25%; font-size: 16px; ">
-            <a href='listItem.wiki' target="_blank" style=" color: blue; text-decoration: underline; padding-left: 20px; word-wrap: break-word">
+            <a href='{{listItem.wiki}}' target="_blank" style=" color: blue; text-decoration: underline; padding-left: 20px; word-wrap: break-word">
               {{listItem.name }}
             </a>
           </td>
