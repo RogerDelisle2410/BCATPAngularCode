@@ -52,9 +52,9 @@ html body {
   text-align: center;
 }
 
-a {
+/*a {
   font-size: 14px;
-}
+}*/
 
 button {
   flex: 1;
@@ -84,14 +84,4 @@ btn {
   /* min-width: 300px;*/
 }
 
-/*#outer {
-  width: 100%;
-  text-align: right;
-}*/
-
-.inner {
-  display: inline-block;
-}
-.element {
-  display: flex;
-}
+ 
