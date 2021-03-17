@@ -1,6 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
 
-/* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
 }
@@ -59,7 +57,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     width:350px;
     background-color: #333;
     color: white;
-    /* padding: .25em .5em;*/
+     padding: .25em .5em;
   }
 
 .table:hover tbody tr:hover td {
@@ -99,7 +97,8 @@ button {
   flex: 1;
   height: 30px;
   display: inline-block;
-  margin-top: -13px;
-  margin-bottom: -15px;
-  margin-left: 1px; 
+/*    margin-top: -13px;*/
+  /*margin-bottom: -15px;*/
+  margin-left: 1px;
 }
+

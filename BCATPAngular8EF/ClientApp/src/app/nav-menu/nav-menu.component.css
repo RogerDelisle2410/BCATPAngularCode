@@ -19,10 +19,6 @@ html {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-/*.active {
-  background: lightblue;
-}*/
-
 .center {
   margin: auto;
   width: 80%; 
@@ -34,6 +30,4 @@ html {
   background-color: aliceblue;
 }
 
-/*button:focus {
-  background-color: lightblue;
-}*/
+ 

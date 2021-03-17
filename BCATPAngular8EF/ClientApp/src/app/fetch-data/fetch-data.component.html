@@ -21,7 +21,7 @@
 
         <div class="col-lg-2">
 
-          <a href="{{wikiLink}}" target="_blank"><button style=""><h5>{{formname}}</h5></button></a>
+          <a href="{{wikiLink}}" target="_blank"><button class="button" style=""><h5>{{formname}}</h5></button></a>
 
         </div>
 
@@ -37,14 +37,14 @@
       </td>
     </tr>
   </table>
-</div> 
+</div>
 
 <div class="row content grad1 col-lg-12" id="main" style="height:auto;">
   <app-header class="col-lg-12"></app-header>
   <table class="table grad1  " style="width: 100%; ">
 
     <tbody>
-      
+
       <tr class="grad1" *ngFor="let listItem of this.astring$ | async | filter:searchText |   paginate:  { itemsPerPage: 8, currentPage: page   }; let i = index">
         <!--<app-display-data [crib]="listItem" class="container-fluid  grad1" style="line-height:4px; width:85%; "></app-display-data>-->
 
@@ -74,23 +74,23 @@
         <!--<td style="width:5%; ">
         </td>-->
         <td class=" " style="width:15%; ">
-          <button class="   " style="word-wrap: break-word; display: inline-block; color: green; " [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" type="submit">
+          <button class="   " style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: green; " [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" type="submit">
             <mat-icon>edit</mat-icon>
           </button>
           <!--</td>
 
           <td style="word-wrap: break-word; width:5%; ">-->
-          <button class="  " style="  word-wrap: break-word; display: inline-block; color: red; " [routerLink]="" (click)="delete(listItem.id, listItem.name)" type="submit">
+          <button class="  " style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: red; " [routerLink]="" (click)="delete(listItem.id, listItem.name)" type="submit">
             <mat-icon>delete</mat-icon>
           </button>
           <!--</td>
 
           <td style="word-wrap: break-word; width:5%;">-->
-          <button class="  " style="  word-wrap: break-word; display: inline-block; color: blue; " [routerLink]="" (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" type="submit">
+          <button class="  " style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: blue; " [routerLink]="" (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" type="submit">
             <mat-icon>map</mat-icon>
           </button>
         </td>
-      </tr>   
+      </tr>
     </tbody>
   </table>
 </div>
