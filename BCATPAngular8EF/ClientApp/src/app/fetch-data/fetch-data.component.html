@@ -71,21 +71,16 @@
         <td style="font-size: 16px; width: 10%; word-wrap: break-word; ">
           {{ listItem.longitude }}
         </td>
-        <!--<td style="width:5%; ">
-        </td>-->
+
         <td class=" " style="width:15%; ">
           <button class="   " style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: green; " [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" type="submit">
             <mat-icon>edit</mat-icon>
           </button>
-          <!--</td>
 
-          <td style="word-wrap: break-word; width:5%; ">-->
           <button class="  " style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: red; " [routerLink]="" (click)="delete(listItem.id, listItem.name)" type="submit">
             <mat-icon>delete</mat-icon>
           </button>
-          <!--</td>
 
-          <td style="word-wrap: break-word; width:5%;">-->
           <button class="  " style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: blue; " [routerLink]="" (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" type="submit">
             <mat-icon>map</mat-icon>
           </button>
