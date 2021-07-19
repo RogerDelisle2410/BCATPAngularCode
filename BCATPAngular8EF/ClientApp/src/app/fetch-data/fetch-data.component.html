@@ -72,16 +72,16 @@
           {{ listItem.longitude }}
         </td>
 
-        <td class=" " style="width:15%; ">
-          <button class="   " style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: green; " [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" type="submit">
+        <td style="width:16%; ">
+          <button style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: green; " [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" type="submit">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button class="  " style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: red; " [routerLink]="" (click)="delete(listItem.id, listItem.name)" type="submit">
+          <button style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: red; " [routerLink]="" (click)="delete(listItem.id, listItem.name)" type="submit" disabled>
             <mat-icon>delete</mat-icon>
           </button>
-
-          <button class="  " style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: blue; " [routerLink]="" (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" type="submit">
+          <!--//Roger for Azure disabled-->
+          <button style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: blue; " [routerLink]="" (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" type="submit">
             <mat-icon>map</mat-icon>
           </button>
         </td>
