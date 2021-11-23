@@ -72,13 +72,5 @@
         public double Latitude { get; set; }
         public string Comment { get; set; }
         public string Wiki { get; set; }
-    }
-    //public class TblBcatp : Tblwild { }
-    //public class TblDewline : Tblwild { }
-    //public class TblMidCanada : Tblwild { }
-    //public class TblNavy : Tblwild { }
-    //public class TblPinetree : Tblwild { }
-    //public class TblAirforce : Tblwild { }
-    //public class TblArmy : Tblwild { }
-    //public class TblDefunct : Tblwild { }
+    } 
 }
