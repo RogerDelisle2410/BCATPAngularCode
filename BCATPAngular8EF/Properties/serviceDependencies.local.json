@@ -4,6 +4,18 @@
       "type": "mssql.onprem",
       "connectionId": "DefaultConnection",
       "secretStore": "LocalSecretsFile"
+    },
+    "secrets1": {
+      "type": "secrets",
+      "connectionId": "",
+      "suggestion": "true",
+      "ignored": "true"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:DefaultConnection",
+      "suggestion": "true",
+      "ignored": "true"
     }
   }
 }
