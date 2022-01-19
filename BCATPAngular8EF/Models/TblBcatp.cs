@@ -1,5 +1,5 @@
 ﻿namespace BCATPAngular8EF.Models
-{
+{//Roger
     public class TblBcatp : TableFormat { }
     public class TblNavy : TableFormat { }
     public class TblDewline : TableFormat { }
