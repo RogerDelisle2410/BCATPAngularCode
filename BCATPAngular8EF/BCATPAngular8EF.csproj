@@ -154,7 +154,6 @@
 
   <ItemGroup>
     <Content Remove="libman.json" />
-    <Content Remove="web.config" />
   </ItemGroup>
 
   <ItemGroup>
