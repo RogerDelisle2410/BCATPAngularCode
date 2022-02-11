@@ -29,7 +29,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class FetchDataComponent implements OnInit {
-
   comparablePartyHeadersTrimmed = [
     'Name',
     'Info',
@@ -37,7 +36,6 @@ export class FetchDataComponent implements OnInit {
     'Longitude',
     'Edit - Del - Map',
   ];
-
   loading$: Observable<Boolean>;
   error$: Observable<Error>;
 
@@ -56,7 +54,7 @@ export class FetchDataComponent implements OnInit {
 
   public astring$: object;
   public wikiLink: string;
-  page = 1;
+  page;
 
   formname: string;
   formname2: string;
@@ -75,13 +73,23 @@ export class FetchDataComponent implements OnInit {
     }
     if (this._avRoute.snapshot.params['formname2']) {
       this.formname2 = this._avRoute.snapshot.params['formname2'];
-    }
-
-    // FetchDataComponent.pageNo = this.page;
-
+    } 
   }
 
   ngOnInit() {
+
+    if (this.formname !== localStorage.getItem('lastForm'))
+    {
+      this.page = 1;
+    }
+    else
+    {
+      this.page = (Number(localStorage.getItem('lastPage')));
+    }
+    localStorage.clear();
+    localStorage.setItem('lastPage', this.page.toString());
+    localStorage.setItem('lastForm', this.formname.toString());
+
     switch (this.formname) {
       case 'Bcatp':
         this.store.dispatch(FetchBcatp());
@@ -172,7 +180,16 @@ export class FetchDataComponent implements OnInit {
         break;
     }
   }
-
+  createFunction() {
+    //window.localStorage.clear();
+    //window.localStorage.setItem('lastPage', this.page.toString());
+    //window.localStorage.setItem('lastForm', this.formname.toString());
+  }
+  savePage() {
+    localStorage.clear();
+    localStorage.setItem('lastPage', this.page.toString());
+    localStorage.setItem('lastForm', this.formname.toString());
+  }
   delete(id, name) {
     const ans = confirm('Do you want to delete: ' + name + ' ' + id);
     if (ans) {

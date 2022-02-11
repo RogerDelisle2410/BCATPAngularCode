@@ -19,7 +19,6 @@
   </div>
 </ng-template>
 
-
 <div class="row col-lg-12 grad1" style="height:40px;">
   <table style="width: 100%;  ">
     <tr>
@@ -27,12 +26,7 @@
         <div class="search-hero col-lg-5" style="display:inline-block;">
           <input class="form-control" style="width:200px; height:25px; display:inline-block;  " type="search" #filterName name="filterName" [(ngModel)]="searchText" placeholder="Search" id="myInput" />
         </div>
-      </td>
-
-      <!--<td id="aButton" class="button" style=" color: blue; text-decoration: underline; margin-bottom: 20px;">
-        <h5>{{formname}}</h5>
-        <a href="{{wikiLink}}" target="_blank" class="col-lg-2"> </a>
-      </td>-->
+      </td>       
       <td class="col-lg-2">
         <a href="{{wikiLink}}" target="_blank"><td style="color: blue; text-decoration: underline; display: inline-block; margin-bottom: 20px; "><h5>{{formname}}</h5></td></a>
       </td>
@@ -130,7 +124,7 @@
     <div class="row">
       <div class="col-lg-2"></div>
       <div class="col-lg-8">
-        <pagination-controls (pageChange)="page=$event"></pagination-controls>
+        <pagination-controls (pageChange)="page=$event; savePage()"></pagination-controls>
 
       </div>
       <div class="col-lg-2"></div>
