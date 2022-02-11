@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp';
+import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct, Tanks, Planes, Ships } from 'src/models/bcatp';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../state/app.state';
 import { Observable } from 'rxjs';
-import { FetchBcatp, DeleteBcatp, FetchNavy, DeleteNavy, FetchDewline, DeleteDewline, FetchPinetree, DeletePinetree, FetchMidCanada, DeleteMidCanada, FetchAirforce, DeleteAirforce, FetchArmy, DeleteArmy, FetchDefunct, DeleteDefunct } from 'src/app/state/actions/bcatp.actions';
+import { FetchBcatp, DeleteBcatp, FetchNavy, DeleteNavy, FetchDewline, DeleteDewline, FetchPinetree, DeletePinetree, FetchMidCanada, DeleteMidCanada, FetchAirforce, DeleteAirforce, FetchArmy, DeleteArmy, FetchDefunct, DeleteDefunct, FetchTanks, DeleteTanks, FetchPlanes, DeletePlanes, FetchShips, DeleteShips } from 'src/app/state/actions/bcatp.actions';
 import { getBcatps } from 'src/app/state/reducers/bcatp.reducer';
 import { getNavys } from 'src/app/state/reducers/navy.reducer';
 import { getDewlines } from 'src/app/state/reducers/dewline.reducer';
@@ -12,6 +12,11 @@ import { getMidCanadas } from 'src/app/state/reducers/midcanada.reducer';
 import { getAirforces } from 'src/app/state/reducers/airforce.reducer';
 import { getArmys } from 'src/app/state/reducers/army.reducer';
 import { getDefuncts } from 'src/app/state/reducers/defunct.reducer';
+
+import { getTanks } from 'src/app/state/reducers/tanks.reducer';
+import { getPlanes } from 'src/app/state/reducers/planes.reducer';
+import { getShips } from 'src/app/state/reducers/ships.reducer';
+
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -30,11 +35,7 @@ export class FetchDataComponent implements OnInit {
     'Info',
     'Latitude',
     'Longitude',
-  /*  ' ',*/
     'Edit - Del - Map',
-    //'Edit',
-    //'Del',
-    //'Map'
   ];
 
   loading$: Observable<Boolean>;
@@ -49,19 +50,25 @@ export class FetchDataComponent implements OnInit {
   public armyList: Observable<Army[]>;
   public defunctList: Observable<Defunct[]>;
 
+  public tanksList: Observable<Tanks[]>;
+  public planesList: Observable<Planes[]>;
+  public shipsList: Observable<Ships[]>;
+
   public astring$: object;
   public wikiLink: string;
   page = 1;
+
   formname: string;
   formname2: string;
   name: string;
   lat: number | 6;
   lng: number | 6;
-  comment: string;
+  comment: string; cmt: string;
   searchText: string;
   wiki: string;
   mapType = 'satellite';
   zoom = 13;
+
   constructor(private modalService: NgbModal, private _avRoute: ActivatedRoute, private store: Store<AppState>, private location: Location) {
     if (this._avRoute.snapshot.params['formname']) {
       this.formname = this._avRoute.snapshot.params['formname'];
@@ -70,9 +77,7 @@ export class FetchDataComponent implements OnInit {
       this.formname2 = this._avRoute.snapshot.params['formname2'];
     }
 
-
-
-
+    // FetchDataComponent.pageNo = this.page;
 
   }
 
@@ -141,6 +146,30 @@ export class FetchDataComponent implements OnInit {
         this.wikiLink = 'https://en.wikipedia.org/wiki/Category:Canadian_Forces_bases_in_Canada_(closed)';
         this.loading$ = this.store.select(store => store.defunct.loading);
         break;
+
+      case 'Tanks':
+        this.store.dispatch(FetchTanks());
+        this.tanksList = this.store.pipe(select(getTanks));
+        this.astring$ = this.tanksList;
+        this.wikiLink = 'https://en.wikipedia.org/wiki/Tanks_of_Canada';
+        this.loading$ = this.store.select(store => store.tanks.loading);
+        break;
+
+      case 'Planes':
+        this.store.dispatch(FetchPlanes());
+        this.planesList = this.store.pipe(select(getPlanes));
+        this.astring$ = this.planesList;
+        this.wikiLink = 'https://en.wikipedia.org/wiki/List_of_aircraft_of_Canada%27s_air_forces';
+        this.loading$ = this.store.select(store => store.planes.loading);
+        break;
+
+      case 'Ships':
+        this.store.dispatch(FetchShips());
+        this.shipsList = this.store.pipe(select(getShips));
+        this.astring$ = this.shipsList;
+        this.wikiLink = 'https://en.wikipedia.org/wiki/List_of_ships_of_the_Royal_Canadian_Navy';
+        this.loading$ = this.store.select(store => store.ships.loading);
+        break;
     }
   }
 
@@ -172,6 +201,15 @@ export class FetchDataComponent implements OnInit {
         case 'Defunct':
           this.store.dispatch(DeleteDefunct({ id: id }));
           break;
+        case 'Tanks':
+          this.store.dispatch(DeleteTanks({ id: id }));
+          break;
+        case 'Planes':
+          this.store.dispatch(DeletePlanes({ id: id }));
+          break;
+        case 'Ships':
+          this.store.dispatch(DeleteShips({ id: id }));
+          break;
       }
     }
   }
@@ -182,7 +220,7 @@ export class FetchDataComponent implements OnInit {
       this.lng = longitude;
       this.lat = latitude;
       this.name = name;
+      this.cmt = comment;
     }
   }
 }
-

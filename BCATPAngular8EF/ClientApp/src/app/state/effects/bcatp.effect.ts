@@ -342,7 +342,7 @@ export class PinetreeEffect {
 
 
 
-  import { AirforceService } from "src/app/services/bcatp.service";
+import { AirforceService } from "src/app/services/bcatp.service";
 import {
   LoadAirforceSuccess, FetchAirforce, AddAirforce, AddAirforceSuccess,
   DeleteAirforce, DeleteAirforceSuccess, EditAirforce, EditAirforceSuccess,
@@ -408,8 +408,8 @@ export class AirforceEffect {
 }
 
 
-  
-  import { ArmyService } from "src/app/services/bcatp.service";
+
+import { ArmyService } from "src/app/services/bcatp.service";
 import {
   LoadArmySuccess, FetchArmy, AddArmy, AddArmySuccess,
   DeleteArmy, DeleteArmySuccess, EditArmy, EditArmySuccess,
@@ -534,6 +534,201 @@ export class DefunctEffect {
       mergeMap(({ id }) =>
         this._defunctService.deleteDefunct(id).pipe(
           map(() => DeleteDefunctSuccess({ id })),
+        )
+      ),
+    )
+  )
+}
+
+import { TanksService } from "src/app/services/bcatp.service";
+import {
+  LoadTanksSuccess, FetchTanks, AddTanks, AddTanksSuccess,
+  DeleteTanks, DeleteTanksSuccess, EditTanks, EditTanksSuccess,
+  LoadTanksFailure, AddTanksFailure, EditTanksFailure
+} from "src/app/state/actions/bcatp.actions";
+
+@Injectable()
+export class TanksEffect {
+  constructor(
+    private actions$: Actions,
+    private _tanksService: TanksService,
+    private _router: Router,
+  ) { }
+
+  loadTanks$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FetchTanks),
+      switchMap(() =>
+        this._tanksService.getTanks().pipe(
+          map((tanks) => LoadTanksSuccess({ tanks })),
+          catchError(error => of(LoadTanksFailure({ error })))
+        )
+      )
+    ),
+  )
+
+  addTanks$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AddTanks),
+      mergeMap(({ tanks }) =>
+        this._tanksService.saveTanks(tanks).pipe(
+          map(() => AddTanksSuccess({ tanks })),
+          tap(() => this._router.navigate(['/fetch-tanks'])),
+          catchError(error => of(AddTanksFailure({ error })))
+        ),
+      )
+    )
+  )
+
+  editTanks$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(EditTanks),
+      mergeMap(({ tanks }) =>
+        this._tanksService.updateTanks(tanks).pipe(
+          map(() => EditTanksSuccess({ tanks })),
+          tap(() => this._router.navigate(['/fetch-tanks'])),
+          catchError(error => of(EditTanksFailure({ error })))
+        ),
+      )
+    )
+  )
+
+  deleteTanks$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(DeleteTanks),
+      mergeMap(({ id }) =>
+        this._tanksService.deleteTanks(id).pipe(
+          map(() => DeleteTanksSuccess({ id })),
+        )
+      ),
+    )
+  )
+}
+
+import { PlanesService } from "src/app/services/bcatp.service";
+import {
+  LoadPlanesSuccess, FetchPlanes, AddPlanes, AddPlanesSuccess,
+  DeletePlanes, DeletePlanesSuccess, EditPlanes, EditPlanesSuccess,
+  LoadPlanesFailure, AddPlanesFailure, EditPlanesFailure
+} from "src/app/state/actions/bcatp.actions";
+
+@Injectable()
+export class PlanesEffect {
+  constructor(
+    private actions$: Actions,
+    private _planesService: PlanesService,
+    private _router: Router,
+  ) { }
+
+  loadPlanes$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FetchPlanes),
+      switchMap(() =>
+        this._planesService.getPlanes().pipe(
+          map((planes) => LoadPlanesSuccess({ planes })),
+          catchError(error => of(LoadPlanesFailure({ error })))
+        )
+      )
+    ),
+  )
+
+  addPlanes$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AddPlanes),
+      mergeMap(({ planes }) =>
+        this._planesService.savePlanes(planes).pipe(
+          map(() => AddPlanesSuccess({ planes })),
+          tap(() => this._router.navigate(['/fetch-planes'])),
+          catchError(error => of(AddPlanesFailure({ error })))
+        ),
+      )
+    )
+  )
+
+  editPlanes$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(EditPlanes),
+      mergeMap(({ planes }) =>
+        this._planesService.updatePlanes(planes).pipe(
+          map(() => EditPlanesSuccess({ planes })),
+          tap(() => this._router.navigate(['/fetch-planes'])),
+          catchError(error => of(EditPlanesFailure({ error })))
+        ),
+      )
+    )
+  )
+
+  deletePlanes$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(DeletePlanes),
+      mergeMap(({ id }) =>
+        this._planesService.deletePlanes(id).pipe(
+          map(() => DeletePlanesSuccess({ id })),
+        )
+      ),
+    )
+  )
+}
+
+import { ShipsService } from "src/app/services/bcatp.service";
+import {
+  LoadShipsSuccess, FetchShips, AddShips, AddShipsSuccess,
+  DeleteShips, DeleteShipsSuccess, EditShips, EditShipsSuccess,
+  LoadShipsFailure, AddShipsFailure, EditShipsFailure
+} from "src/app/state/actions/bcatp.actions";
+
+@Injectable()
+export class ShipsEffect {
+  constructor(
+    private actions$: Actions,
+    private _shipsService: ShipsService,
+    private _router: Router,
+  ) { }
+
+  loadShips$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FetchShips),
+      switchMap(() =>
+        this._shipsService.getShips().pipe(
+          map((ships) => LoadShipsSuccess({ ships })),
+          catchError(error => of(LoadShipsFailure({ error })))
+        )
+      )
+    ),
+  )
+
+  addShips$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AddShips),
+      mergeMap(({ ships }) =>
+        this._shipsService.saveShips(ships).pipe(
+          map(() => AddShipsSuccess({ ships })),
+          tap(() => this._router.navigate(['/fetch-ships'])),
+          catchError(error => of(AddShipsFailure({ error })))
+        ),
+      )
+    )
+  )
+
+  editShips$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(EditShips),
+      mergeMap(({ ships }) =>
+        this._shipsService.updateShips(ships).pipe(
+          map(() => EditShipsSuccess({ ships })),
+          tap(() => this._router.navigate(['/fetch-ships'])),
+          catchError(error => of(EditShipsFailure({ error })))
+        ),
+      )
+    )
+  )
+
+  deleteShips$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(DeleteShips),
+      mergeMap(({ id }) =>
+        this._shipsService.deleteShips(id).pipe(
+          map(() => DeleteShipsSuccess({ id })),
         )
       ),
     )

@@ -5,8 +5,10 @@ import { PinetreeState } from "./reducers/pinetree.reducer";
 import { MidCanadaState } from "./reducers/midcanada.reducer";
 import { AirforceState } from "./reducers/airforce.reducer";
 import { ArmyState } from "./reducers/army.reducer";
-import { DefunctState } from "./reducers/defunct.reducer"; 
-
+import { DefunctState } from "./reducers/defunct.reducer";
+import { TanksState } from "./reducers/tanks.reducer";
+import { PlanesState } from "./reducers/planes.reducer";
+import { ShipsState } from "./reducers/ships.reducer";
 
 export interface AppState {
   readonly bcatp: BcatpState;
@@ -33,4 +35,16 @@ export interface AppState {
 }
 export interface AppState {
   readonly defunct: DefunctState;
-} 
+}
+
+export interface AppState {
+  readonly tanks: TanksState;
+}
+
+export interface AppState {
+  readonly planes: PlanesState;
+}
+
+export interface AppState {
+  readonly ships: ShipsState;
+}

@@ -2,104 +2,134 @@
 <ng-template #mymodal let-modal class=" ">
   <div class="modal-body ">
     <h5>{{name}}</h5>
-    <agm-map [latitude]='lat' [longitude]='lng' [zoom]="zoom" [mapTypeId]='mapType' [fullscreenControl]='true' [mapTypeControl]='true'>
-      <agm-marker [latitude]='lat' [longitude]='lng' [label]='location.title'></agm-marker>
-    </agm-map>
+    <div *ngIf="formname !== 'Planes' && formname !== 'Tanks' && formname !== 'Ships'">
+      <agm-map [latitude]='lat' [longitude]='lng' [zoom]="zoom" [mapTypeId]='mapType' [fullscreenControl]='true' [mapTypeControl]='true'>
+        <agm-marker [latitude]='lat' [longitude]='lng' [label]='location.title'></agm-marker>
+      </agm-map>
+    </div>
+
+    <div *ngIf="formname === 'Planes' || formname === 'Tanks' || formname === 'Ships'">
+      <img class="img-fluid" [src]='cmt' style=" height: 375px; width: auto; position: center; ">
+    </div>
+
     <footer style="float: right; display: block; height:30px; ">
       <button class="btn btn-danger" style=" float: right; margin-top:5px" (click)="modal.close()">Cancel</button>
     </footer>
+
   </div>
 </ng-template>
 
-<div class="row col-lg-12 grad1" style="height:auto;">
-  <table style="width: 100%; ">
+
+<div class="row col-lg-12 grad1" style="height:40px;">
+  <table style="width: 100%;  ">
     <tr>
       <td style="text-align:center; align-content:center;" class='container  navbar navbar-expand-sm     center'>
         <div class="search-hero col-lg-5" style="display:inline-block;">
-          <input class="form-control" style="width:200px; height:25px; display:inline-block; margin-bottom:10px" type="search" #filterName name="filterName" [(ngModel)]="searchText" placeholder="Search" id="myInput">
-        </div>
-
-        <div class="col-lg-2">
-
-          <a href="{{wikiLink}}" target="_blank"><button class="button" style=""><h5>{{formname}}</h5></button></a>
-
-        </div>
-
-        <div class="col-lg-2">
-
-          <button class="button" style="display:inline-block; " [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></button>
-
-          <!--<a style="text-decoration: underline; display: inline-block; color:  blue;" [routerLink]='["/bcatp/add", formname]'><h4>Create</h4></a>-->
-        </div>
-
-        <div class="col-lg-3">
+          <input class="form-control" style="width:200px; height:25px; display:inline-block;  " type="search" #filterName name="filterName" [(ngModel)]="searchText" placeholder="Search" id="myInput" />
         </div>
       </td>
+      <td id="aButton" class="button" style=" color: blue; text-decoration: underline; margin-bottom: 20px;">
+        <h5>{{formname}}</h5>
+        <a href="{{wikiLink}}" target="_blank" class="col-lg-2"> </a>
+      </td>
+      <td class=" col-lg-2">
+        <button class="button " style="display: inline-block; margin-bottom: 20px;   " [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></button>
+      </td>
+      <!--<td class=" col-lg-2">
+        <button class="button " *ngIf="formname !== 'Planes' && formname !== 'Tanks' && formname !== 'Ships'" style="display: inline-block; margin-bottom: 20px;   " [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></button>
+      </td>
+      <td class="  col-lg-2">
+        <button class="button   " *ngIf="formname === 'Planes' || formname === 'Tanks' || formname === 'Ships'" style="display: inline-block; margin-bottom: 20px; " [routerLink]='["/bcatp2/add", formname]'><h5>Create</h5></button>
+      </td>-->
     </tr>
   </table>
 </div>
 
-<div class="row content grad1 col-lg-12" id="main" style="height:auto;">
-  <app-header class="col-lg-12"></app-header>
-  <table class="table grad1  " style="width: 100%; ">
+<div *ngIf="formname !== 'Planes' && formname !== 'Tanks' && formname !== 'Ships'; else ShowBlockArmaments">
 
-    <tbody>
+  <div class="row content grad1 col-lg-12" id="main" style="height:auto;">
+    <app-header class="col-lg-12"></app-header>
+    <table class="table grad1  " style="width: 100%; ">
+      <tbody>
 
-      <tr class="grad1" *ngFor="let listItem of this.astring$ | async | filter:searchText |   paginate:  { itemsPerPage: 8, currentPage: page   }; let i = index">
-        <!--<app-display-data [crib]="listItem" class="container-fluid  grad1" style="line-height:4px; width:85%; "></app-display-data>-->
+        <tr class="grad1" *ngFor="let listItem of this.astring$ | async | filter:searchText |   paginate:  { itemsPerPage: 7, currentPage: page   }; let i = index">
 
-        <ng-template *ngIf="listItem.wiki; then showBlock; else notShowBlock"></ng-template>
-        <ng-template #showBlock>
-          <td style="width: 25%; font-size: 16px; ">
-            <a href='{{listItem.wiki}}' target="_blank" style=" color: blue; text-decoration: underline; padding-left: 20px; word-wrap: break-word">
+          <ng-template *ngIf="listItem.wiki; then showBlock; else notShowBlock"></ng-template>
+          <ng-template #showBlock>
+            <td style="width: 25%; font-size: 16px; ">
+              <a href='{{listItem.wiki}}' target="_blank" style=" color: blue; text-decoration: underline; padding-left: 20px; word-wrap: break-word">
+                {{listItem.name }}
+              </a>
+            </td>
+          </ng-template>
+          <ng-template #notShowBlock>
+            <td style="width: 25%; padding-left: 30px; word-wrap: break-word; font-size: 16px;  ">
               {{listItem.name }}
-            </a>
+            </td>
+          </ng-template>
+          <td class="" style="font-size: 16px; text-align: left; width: 40%; word-wrap: break-word;  ">
+            {{ listItem.comment }}
           </td>
-        </ng-template>
-        <ng-template #notShowBlock>
-          <td style="width: 25%; padding-left: 30px; word-wrap: break-word; font-size: 16px;  ">
-            {{listItem.name }}
+          <td style="font-size: 16px; width: 10%; word-wrap: break-word; ">
+            {{ listItem.latitude }}
           </td>
-        </ng-template>
-
-        <td class="" style="font-size: 16px; text-align: left; width: 40%; word-wrap: break-word;  ">
-          {{ listItem.comment }}
-        </td>
-        <td style="font-size: 16px; width: 10%; word-wrap: break-word; ">
-          {{ listItem.latitude }}
-        </td>
-        <td style="font-size: 16px; width: 10%; word-wrap: break-word; ">
-          {{ listItem.longitude }}
-        </td>
-
-        <td style="width:16%; ">
-          <button style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: green; " [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" type="submit">
-            <mat-icon>edit</mat-icon>
-          </button>
-
-          <button style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: red; " [routerLink]="" (click)="delete(listItem.id, listItem.name)" type="submit" disabled>
-            <mat-icon>delete</mat-icon>
-          </button>
-          <!--//Roger for Azure disabled-->
-          <button style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: blue; " [routerLink]="" (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" type="submit">
-            <mat-icon>map</mat-icon>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          <td style="font-size: 16px; width: 10%; word-wrap: break-word; ">
+            {{ listItem.longitude }}
+          </td>
+          <td style="width:16%; ">
+            <button style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: green; " [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" type="submit">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: red; " [routerLink]="[]" (click)="delete(listItem.id, listItem.name)" type="submit">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <!--//Roger for Azure disabled-->
+            <button style="margin-top: -13px; margin-bottom: -15px; word-wrap: break-word; display: inline-block; color: blue; " [routerLink]="[]" (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" type="submit">
+              <mat-icon>map</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<footer class="col-lg-12 grad2" style="    font-size: 16px;">
-  <div class="footer   grad2 " id="footer">
-    <div class="row ">
-      <div class="col-lg-2  "></div>
-      <div class="col-lg-8  ">
+
+<ng-template #ShowBlockArmaments>
+
+  <table class="row grad1 col-md-12 table table-bordered" style="width: 100%;">
+    <tr style="width: 100%; " class="col-lg-4" *ngFor="let listItem of this.astring$ | async | filter:searchText |   paginate:  { itemsPerPage: 9, currentPage: page   }; let i = index">
+
+      <th class="col-lg-12" style="  font-size: 13px;">
+        <a href='{{listItem.wiki}}' target="_blank" style="color: blue; text-decoration: underline; word-wrap: break-word;">
+          {{listItem.name }}
+        </a>
+        <br />
+        <button style="margin-top: 30px;   word-wrap: break-word; display: inline-block; color: green; " [routerLink]="['/bcatp/edit', formname, listItem.id, listItem.name, listItem.latitude, listItem.longitude]" type="submit">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button style="margin-top: 30px;  word-wrap: break-word; display: inline-block; color: red; " [routerLink]="[]" (click)="delete(listItem.id, listItem.name)" type="submit">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </th>
+      <th class="col-lg-12" style="">
+        <img class="gallery-img" src="{{listItem.comment}} " style="width: 120px; height: 85px; float: right;"
+             (click)="open(mymodal, listItem.name, listItem.latitude, listItem.longitude, listItem.comment, listItem.wiki )" type="submit" />
+      </th>
+    </tr>
+
+  </table>
+</ng-template>
+
+<footer class="col-lg-12 grad2" style="font-size: 16px;">
+  <div class="footer grad2" id="footer">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
         <pagination-controls (pageChange)="page=$event"></pagination-controls>
+
       </div>
-      <div class="col-lg-2  "></div>
+      <div class="col-lg-2"></div>
     </div>
   </div>
 </footer>
-
-

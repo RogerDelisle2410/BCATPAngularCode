@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Defunct = exports.Army = exports.Airforce = exports.Pinetree = exports.MidCanada = exports.Dewline = exports.Navy = exports.Bcatp = void 0;
+exports.Ships = exports.Planes = exports.Tanks = exports.Defunct = exports.Army = exports.Airforce = exports.Pinetree = exports.MidCanada = exports.Dewline = exports.Navy = exports.Bcatp = void 0;
 var Bcatp = /** @class */ (function () {
     function Bcatp() {
     }
@@ -49,4 +49,22 @@ var Defunct = /** @class */ (function () {
     return Defunct;
 }());
 exports.Defunct = Defunct;
+var Tanks = /** @class */ (function () {
+    function Tanks() {
+    }
+    return Tanks;
+}());
+exports.Tanks = Tanks;
+var Planes = /** @class */ (function () {
+    function Planes() {
+    }
+    return Planes;
+}());
+exports.Planes = Planes;
+var Ships = /** @class */ (function () {
+    function Ships() {
+    }
+    return Ships;
+}());
+exports.Ships = Ships;
 //# sourceMappingURL=bcatp.js.map

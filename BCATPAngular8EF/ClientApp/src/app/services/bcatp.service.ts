@@ -464,3 +464,171 @@ export class BcatpService {
         }));
   }
  }
+import { Tanks } from 'src/models/bcatp';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TanksService {
+
+  myAppUrl = '';
+
+  constructor(private _http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.myAppUrl = baseUrl;
+  }
+
+
+
+  getTanks() {
+    console.log('service called');
+    return this._http.get<Tanks[]>(this.myAppUrl + 'api/Tanks/Index').pipe(map(
+      response => {
+        return response;
+      }));
+  }
+
+  getTanksById(id: number) {
+    return this._http.get(this.myAppUrl + 'api/Tanks/Details/' + id)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+
+  saveTanks(tanks: Tanks) {
+    console.log('service called');
+    return this._http.post(this.myAppUrl + 'api/Tanks/Create', tanks)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+
+  updateTanks(tanks: Tanks) {
+    return this._http.put(this.myAppUrl + 'api/Tanks/Edit', tanks)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+
+  deleteTanks(id: number): Observable<any> {
+    return this._http.delete(this.myAppUrl + 'api/Tanks/Delete/' + id)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+}
+import { Planes } from 'src/models/bcatp';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PlanesService {
+
+  myAppUrl = '';
+
+  constructor(private _http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.myAppUrl = baseUrl;
+  }
+
+
+
+  getPlanes() {
+    console.log('service called');
+    return this._http.get<Planes[]>(this.myAppUrl + 'api/Planes/Index').pipe(map(
+      response => {
+        return response;
+      }));
+  }
+
+  getPlanesById(id: number) {
+    return this._http.get(this.myAppUrl + 'api/Planes/Details/' + id)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+
+  savePlanes(planes: Planes) {
+    console.log('service called');
+    return this._http.post(this.myAppUrl + 'api/Planes/Create', planes)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+
+  updatePlanes(planes: Planes) {
+    return this._http.put(this.myAppUrl + 'api/Planes/Edit', planes)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+
+  deletePlanes(id: number): Observable<any> {
+    return this._http.delete(this.myAppUrl + 'api/Planes/Delete/' + id)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+}
+import { Ships } from 'src/models/bcatp';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ShipsService {
+
+  myAppUrl = '';
+
+  constructor(private _http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.myAppUrl = baseUrl;
+  }
+
+
+
+  getShips() {
+    console.log('service called');
+    return this._http.get<Ships[]>(this.myAppUrl + 'api/Ships/Index').pipe(map(
+      response => {
+        return response;
+      }));
+  }
+
+  getShipsById(id: number) {
+    return this._http.get(this.myAppUrl + 'api/Ships/Details/' + id)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+
+  saveShips(ships: Ships) {
+    console.log('service called');
+    return this._http.post(this.myAppUrl + 'api/Ships/Create', ships)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+
+  updateShips(ships: Ships) {
+    return this._http.put(this.myAppUrl + 'api/Ships/Edit', ships)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+
+  deleteShips(id: number): Observable<any> {
+    return this._http.delete(this.myAppUrl + 'api/Ships/Delete/' + id)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+  }
+}

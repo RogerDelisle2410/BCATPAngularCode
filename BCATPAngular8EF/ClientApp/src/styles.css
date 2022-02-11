@@ -50,7 +50,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
   .my-button:hover::after {
     position: absolute;
-    content: attr(data-tooltip);
+    /*content: attr(data-tooltip);*/
     bottom: 2em;
     right: -10em;
     line-height:20px;

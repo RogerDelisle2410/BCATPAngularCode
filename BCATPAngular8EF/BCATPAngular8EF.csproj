@@ -266,6 +266,9 @@
     <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\midcanada.reducer.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\navy.reducer.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\pinetree.reducer.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\planes.reducer.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\ships.reducer.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\tanks.reducer.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

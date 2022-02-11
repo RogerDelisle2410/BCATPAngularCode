@@ -69,3 +69,29 @@ export class Defunct {
   comment: string;
   wiki: string;
 }
+export class Tanks {
+  id: number;
+  name: string;
+  longitude: number | 6;
+  latitude: number | 6;
+  comment: string;
+  wiki: string;
+}
+
+export class Planes {
+  id: number;
+  name: string;
+  longitude: number | 6;
+  latitude: number | 6;
+  comment: string;
+  wiki: string;
+}
+
+export class Ships {
+  id: number;
+  name: string;
+  longitude: number | 6;
+  latitude: number | 6;
+  comment: string;
+  wiki: string;
+}

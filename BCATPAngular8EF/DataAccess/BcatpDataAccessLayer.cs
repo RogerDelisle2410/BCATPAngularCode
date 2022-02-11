@@ -674,4 +674,251 @@ namespace BCATPAngular8EF.DataAccess
             }
         }
     }
+    public class TanksDataAccessLayer : ITanks
+    {
+        private readonly BCATPDBContext dbTanks;
+
+        public TanksDataAccessLayer(BCATPDBContext _db)
+        {
+            dbTanks = _db;
+        }
+
+        public IEnumerable<TblTanks> GetAllTanks()
+        {
+            try
+            {
+                return dbTanks.TblTanks.ToList().OrderBy(x => x.Name);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //To Add new tank record 
+        public int AddTanks(TblTanks tanks)
+        {
+            try
+            {
+                dbTanks.TblTanks.Add(tanks);
+                dbTanks.SaveChanges();
+                return 1;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //To Update the records of a particluar tank
+        public int UpdateTanks(TblTanks tanks)
+        {
+            try
+            {
+                dbTanks.Entry(tanks).State = EntityState.Modified;
+                dbTanks.SaveChanges();
+
+                return 1;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //Get the details of a particular tank
+        public TblTanks GetTanksData(int id)
+        {
+            try
+            {
+                TblTanks tanks = dbTanks.TblTanks.Find(id);
+                return tanks;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //To Delete the record on a particular tank
+        public int DeleteTanks(int id)
+        {
+            try
+            {
+                TblTanks emp = dbTanks.TblTanks.Find(id);
+                dbTanks.TblTanks.Remove(emp);
+                dbTanks.SaveChanges();
+                return 1;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+    }
+
+    public class PlanesDataAccessLayer : IPlanes
+    {
+        private readonly BCATPDBContext dbPlanes;
+
+        public PlanesDataAccessLayer(BCATPDBContext _db)
+        {
+            dbPlanes = _db;
+        }
+
+        public IEnumerable<TblPlanes> GetAllPlanes()
+        {
+            try
+            {
+                return dbPlanes.TblPlanes.ToList().OrderBy(x => x.Name);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //To Add new plane record 
+        public int AddPlanes(TblPlanes planes)
+        {
+            try
+            {
+                dbPlanes.TblPlanes.Add(planes);
+                dbPlanes.SaveChanges();
+                return 1;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //To Update the records of a particluar plane
+        public int UpdatePlanes(TblPlanes planes)
+        {
+            try
+            {
+                dbPlanes.Entry(planes).State = EntityState.Modified;
+                dbPlanes.SaveChanges();
+
+                return 1;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //Get the details of a particular plane
+        public TblPlanes GetPlanesData(int id)
+        {
+            try
+            {
+                TblPlanes planes = dbPlanes.TblPlanes.Find(id);
+                return planes;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //To Delete the record on a particular plane
+        public int DeletePlanes(int id)
+        {
+            try
+            {
+                TblPlanes emp = dbPlanes.TblPlanes.Find(id);
+                dbPlanes.TblPlanes.Remove(emp);
+                dbPlanes.SaveChanges();
+                return 1;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+    }
+    public class ShipsDataAccessLayer : IShips
+    {
+        private readonly BCATPDBContext dbShips;
+
+        public ShipsDataAccessLayer(BCATPDBContext _db)
+        {
+            dbShips = _db;
+        }
+
+        public IEnumerable<TblShips> GetAllShips()
+        {
+            try
+            {
+                return dbShips.TblShips.ToList().OrderBy(x => x.Name);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //To Add new ship record 
+        public int AddShips(TblShips ships)
+        {
+            try
+            {
+                dbShips.TblShips.Add(ships);
+                dbShips.SaveChanges();
+                return 1;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //To Update the records of a particluar ship
+        public int UpdateShips(TblShips ships)
+        {
+            try
+            {
+                dbShips.Entry(ships).State = EntityState.Modified;
+                dbShips.SaveChanges();
+
+                return 1;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //Get the details of a particular ship
+        public TblShips GetShipsData(int id)
+        {
+            try
+            {
+                TblShips ships = dbShips.TblShips.Find(id);
+                return ships;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //To Delete the record on a particular ship
+        public int DeleteShips(int id)
+        {
+            try
+            {
+                TblShips emp = dbShips.TblShips.Find(id);
+                dbShips.TblShips.Remove(emp);
+                dbShips.SaveChanges();
+                return 1;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+    }
 }

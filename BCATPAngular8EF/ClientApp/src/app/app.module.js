@@ -29,6 +29,9 @@ var midcanada_reducer_1 = require("./state/reducers/midcanada.reducer");
 var airforce_reducer_1 = require("./state/reducers/airforce.reducer");
 var army_reducer_1 = require("./state/reducers/army.reducer");
 var defunct_reducer_1 = require("./state/reducers/defunct.reducer");
+var tanks_reducer_1 = require("./state/reducers/tanks.reducer");
+var planes_reducer_1 = require("./state/reducers/planes.reducer");
+var ships_reducer_1 = require("./state/reducers/ships.reducer");
 var effects_1 = require("@ngrx/effects");
 var bcatp_effect_1 = require("./state/effects/bcatp.effect");
 var store_devtools_1 = require("@ngrx/store-devtools");
@@ -37,11 +40,7 @@ var ngx_pagination_1 = require("ngx-pagination");
 var core_2 = require("@agm/core");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var icon_1 = require("@angular/material/icon");
-//import { MatInputModule } from "@angular/material/input";
-//import { MatSortModule } from "@angular/material/Sort";
-//import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-//import { MatPaginatorModule } from "@angular/material/Paginator";
-//import { MatTableModule } from "@angular/material/table";
+/*import { Directive, Input, Output, EventEmitter } from '@angular/core';*/
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -72,9 +71,9 @@ var AppModule = /** @class */ (function () {
                 }),
                 forms_1.ReactiveFormsModule,
                 store_1.StoreModule.forRoot({
-                    navy: navy_reducer_1.navyReducer, bcatp: bcatp_reducer_1.bcatpReducer, dewline: dewline_reducer_1.dewlineReducer, pinetree: pinetree_reducer_1.pinetreeReducer, midcanada: midcanada_reducer_1.midcanadaReducer, airforce: airforce_reducer_1.airforceReducer, army: army_reducer_1.armyReducer, defunct: defunct_reducer_1.defunctReducer
+                    navy: navy_reducer_1.navyReducer, bcatp: bcatp_reducer_1.bcatpReducer, dewline: dewline_reducer_1.dewlineReducer, pinetree: pinetree_reducer_1.pinetreeReducer, midcanada: midcanada_reducer_1.midcanadaReducer, airforce: airforce_reducer_1.airforceReducer, army: army_reducer_1.armyReducer, defunct: defunct_reducer_1.defunctReducer, tanks: tanks_reducer_1.tanksReducer, planes: planes_reducer_1.planesReducer, ships: ships_reducer_1.shipsReducer
                 }),
-                effects_1.EffectsModule.forRoot([bcatp_effect_1.NavyEffect, bcatp_effect_1.BcatpEffect, bcatp_effect_1.DewlineEffect, bcatp_effect_1.PinetreeEffect, bcatp_effect_1.MidCanadaEffect, bcatp_effect_1.AirforceEffect, bcatp_effect_1.ArmyEffect, bcatp_effect_1.DefunctEffect]),
+                effects_1.EffectsModule.forRoot([bcatp_effect_1.NavyEffect, bcatp_effect_1.BcatpEffect, bcatp_effect_1.DewlineEffect, bcatp_effect_1.PinetreeEffect, bcatp_effect_1.MidCanadaEffect, bcatp_effect_1.AirforceEffect, bcatp_effect_1.ArmyEffect, bcatp_effect_1.DefunctEffect, bcatp_effect_1.TanksEffect, bcatp_effect_1.PlanesEffect, bcatp_effect_1.ShipsEffect]),
                 store_devtools_1.StoreDevtoolsModule.instrument({
                     maxAge: 25
                 }),
@@ -89,6 +88,9 @@ var AppModule = /** @class */ (function () {
                     { path: 'fetch-airforce/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
                     { path: 'fetch-army/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
                     { path: 'fetch-defunct/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
+                    { path: 'fetch-tanks/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
+                    { path: 'fetch-planes/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
+                    { path: 'fetch-ships/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
                     { path: 'bcatp/edit/:formname/:id/:name/:latitude/:longitude', component: edit_data_component_1.AddBcatpComponent },
                     { path: 'bcatp/add/:formname3', component: create_new_component_1.CreateBcatpComponent },
                 ])

@@ -1,14 +1,17 @@
 ﻿namespace BCATPAngular8EF.Models
-{//Roger
-    public class TblBcatp : TableFormat { }
-    public class TblNavy : TableFormat { }
-    public class TblDewline : TableFormat { }
-    public class TblMidCanada : TableFormat { }
-    public class TblPinetree : TableFormat { }
-    public class TblAirforce : TableFormat { }
-    public class TblArmy : TableFormat { }
-    public class TblDefunct : TableFormat { }
-    public class TableFormat
+{
+    public class TblBcatp : TblAllFormat { }
+    public class TblNavy : TblAllFormat { }
+    public class TblDewline : TblAllFormat { }
+    public class TblMidCanada : TblAllFormat { }
+    public class TblPinetree : TblAllFormat { }
+    public class TblAirforce : TblAllFormat { }
+    public class TblArmy : TblAllFormat { }
+    public class TblDefunct : TblAllFormat { }
+    public class TblTanks : TblAllFormat { }
+    public class TblPlanes : TblAllFormat { }
+    public class TblShips : TblAllFormat { }
+    public class TblAllFormat
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -17,4 +20,5 @@
         public string Comment { get; set; }
         public string Wiki { get; set; }
     }
+
 }

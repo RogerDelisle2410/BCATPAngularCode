@@ -1,13 +1,13 @@
-import { Component, OnInit, Input, Output, OnDestroy, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BcatpService, NavyService, DewlineService, PinetreeService, MidCanadaService } from '../services/bcatp.service';
-import { AirforceService, ArmyService, DefunctService } from '../services/bcatp.service';
-import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct } from 'src/models/bcatp';
+import { AirforceService, ArmyService, DefunctService, TanksService, PlanesService, ShipsService } from '../services/bcatp.service';
+import { Bcatp, Navy, Dewline, Pinetree, MidCanada, Airforce, Army, Defunct, Tanks, Planes, Ships } from 'src/models/bcatp';
 import { AppState } from '../state/app.state';
 import { Store } from '@ngrx/store';
 import { EditBcatp, EditNavy, EditDewline, EditPinetree } from '../state/actions/bcatp.actions';
-import { EditMidCanada, EditAirforce, EditArmy, EditDefunct, } from '../state/actions/bcatp.actions';
+import { EditMidCanada, EditAirforce, EditArmy, EditDefunct, EditTanks, EditPlanes, EditShips } from '../state/actions/bcatp.actions';
 import { Location } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
@@ -25,10 +25,9 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
   formname: string;
   getById: string;
   name2: string;
-
-
   lat: number | 6;
   lng: number | 6;
+
   mapType = 'satellite';
   zoom = 13;
   address: string;
@@ -41,6 +40,7 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
   get name3() { return this.FormName.get('name').value; }
   get lat3() { return this.FormName.get('latitude').value; }
   get lng3() { return this.FormName.get('longitude').value; }
+  get cmt3() { return this.FormName.get('comment').value; }
 
   @ViewChild('search', { static: true })
   public searchElementRef: ElementRef;
@@ -54,6 +54,9 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
     private _AirforceService: AirforceService,
     private _ArmyService: ArmyService,
     private _DefunctService: DefunctService,
+    private _TanksService: TanksService,
+    private _PlanesService: PlanesService,
+    private _ShipsService: ShipsService,
     private _router: Router,
     private store: Store<AppState>,
     private router: Router,
@@ -75,6 +78,7 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
     if (this._avRoute.snapshot.params['longitude']) {
       this.lng = Math.max(this._avRoute.snapshot.params['longitude']);
     }
+
 
     this.FormName = this._fb.group({
       id: 0,
@@ -136,6 +140,22 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
           break;
         case 'Defunct':
           this._DefunctService.getDefunctById(this.id).subscribe((response = Defunct) => {
+            this.FormName.setValue(response);
+          }, error => console.error(error));
+          break;
+
+        case 'Tanks':
+          this._TanksService.getTanksById(this.id).subscribe((response = Tanks) => {
+            this.FormName.setValue(response);
+          }, error => console.error(error));
+          break;
+        case 'Planes':
+          this._PlanesService.getPlanesById(this.id).subscribe((response = Planes) => {
+            this.FormName.setValue(response);
+          }, error => console.error(error));
+          break;
+        case 'Ships':
+          this._ShipsService.getShipsById(this.id).subscribe((response = Ships) => {
             this.FormName.setValue(response);
           }, error => console.error(error));
           break;
@@ -253,6 +273,15 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
         case 'Defunct':
           this.store.dispatch(EditDefunct({ defunct: this.FormName.value }));
           break;
+        case 'Tanks':
+          this.store.dispatch(EditTanks({ tanks: this.FormName.value }));
+          break;
+        case 'Planes':
+          this.store.dispatch(EditPlanes({ planes: this.FormName.value }));
+          break;
+        case 'Ships':
+          this.store.dispatch(EditShips({ ships: this.FormName.value }));
+          break;
       }
     }
     this.location.back();
@@ -262,6 +291,7 @@ export class AddBcatpComponent implements OnInit, OnDestroy {
     {
       this.title = '';
       this._router.navigate(['/fetch-bcatp']);
+
     }
   }
 

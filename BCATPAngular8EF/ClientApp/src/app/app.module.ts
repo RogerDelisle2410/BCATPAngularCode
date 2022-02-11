@@ -20,21 +20,21 @@ import { midcanadaReducer } from './state/reducers/midcanada.reducer';
 import { airforceReducer } from './state/reducers/airforce.reducer';
 import { armyReducer } from './state/reducers/army.reducer';
 import { defunctReducer } from './state/reducers/defunct.reducer';
+
+import { tanksReducer } from './state/reducers/tanks.reducer';
+import { planesReducer } from './state/reducers/planes.reducer';
+import { shipsReducer } from './state/reducers/ships.reducer';
+
 import { EffectsModule } from '@ngrx/effects';
-import { BcatpEffect, NavyEffect, DewlineEffect, PinetreeEffect, MidCanadaEffect, AirforceEffect, ArmyEffect, DefunctEffect } from './state/effects/bcatp.effect';
+import { BcatpEffect, NavyEffect, DewlineEffect, PinetreeEffect, MidCanadaEffect, AirforceEffect, ArmyEffect, DefunctEffect, TanksEffect, PlanesEffect, ShipsEffect  } from './state/effects/bcatp.effect';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatIconModule } from '@angular/material/icon';
-//import { MatInputModule } from "@angular/material/input";
-//import { MatSortModule } from "@angular/material/Sort";
-//import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-//import { MatPaginatorModule } from "@angular/material/Paginator";
-//import { MatTableModule } from "@angular/material/table";
+import { MatIconModule } from '@angular/material/icon'; 
 
- 
+/*import { Directive, Input, Output, EventEmitter } from '@angular/core';*/
 
 @NgModule({
   declarations: [
@@ -63,10 +63,10 @@ import { MatIconModule } from '@angular/material/icon';
     }),
     ReactiveFormsModule,
     StoreModule.forRoot({
-      navy: navyReducer, bcatp: bcatpReducer, dewline: dewlineReducer, pinetree: pinetreeReducer, midcanada: midcanadaReducer, airforce: airforceReducer, army: armyReducer, defunct: defunctReducer
+      navy: navyReducer, bcatp: bcatpReducer, dewline: dewlineReducer, pinetree: pinetreeReducer, midcanada: midcanadaReducer, airforce: airforceReducer, army: armyReducer, defunct: defunctReducer, tanks: tanksReducer, planes: planesReducer, ships: shipsReducer
     }),
 
-    EffectsModule.forRoot([NavyEffect, BcatpEffect, DewlineEffect, PinetreeEffect, MidCanadaEffect, AirforceEffect, ArmyEffect, DefunctEffect]),
+    EffectsModule.forRoot([NavyEffect, BcatpEffect, DewlineEffect, PinetreeEffect, MidCanadaEffect, AirforceEffect, ArmyEffect, DefunctEffect, TanksEffect, PlanesEffect, ShipsEffect]),
 
     StoreDevtoolsModule.instrument({
       maxAge: 25
@@ -85,6 +85,11 @@ import { MatIconModule } from '@angular/material/icon';
       { path: 'fetch-airforce/:formname/:formname2', component: FetchDataComponent },
       { path: 'fetch-army/:formname/:formname2', component: FetchDataComponent },
       { path: 'fetch-defunct/:formname/:formname2', component: FetchDataComponent },
+
+      { path: 'fetch-tanks/:formname/:formname2', component: FetchDataComponent },
+      { path: 'fetch-planes/:formname/:formname2', component: FetchDataComponent },
+      { path: 'fetch-ships/:formname/:formname2', component: FetchDataComponent },
+
       { path: 'bcatp/edit/:formname/:id/:name/:latitude/:longitude', component: AddBcatpComponent },
       { path: 'bcatp/add/:formname3', component: CreateBcatpComponent },
     ])

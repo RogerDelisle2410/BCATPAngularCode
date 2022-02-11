@@ -74,4 +74,31 @@ namespace BCATPAngular8EF.Interfaces
         TblDefunct GetDefunctData(int id);
         int DeleteDefunct(int id);
     }
+    public interface ITanks
+    {
+        IEnumerable<TblTanks> GetAllTanks();
+        int AddTanks(TblTanks tanks);
+        int UpdateTanks(TblTanks tanks);
+        TblTanks GetTanksData(int id);
+        int DeleteTanks(int id);
+    }
+
+    public interface IPlanes
+    {
+        IEnumerable<TblPlanes> GetAllPlanes();
+        int AddPlanes(TblPlanes planes);
+        int UpdatePlanes(TblPlanes planes);
+        TblPlanes GetPlanesData(int id);
+        int DeletePlanes(int id);
+    }
+
+    public interface IShips
+    {
+        IEnumerable<TblShips> GetAllShips();
+        int AddShips(TblShips ships);
+        int UpdateShips(TblShips ships);
+        TblShips GetShipsData(int id);
+        int DeleteShips(int id);
+    }
 }
+

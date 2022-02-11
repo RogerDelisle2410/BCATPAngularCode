@@ -20,7 +20,9 @@ namespace BCATPAngular8EF.Models
         public virtual DbSet<TblAirforce> TblAirforce { get; set; }
         public virtual DbSet<TblArmy> TblArmy { get; set; }
         public virtual DbSet<TblDefunct> TblDefunct { get; set; }
-
+        public virtual DbSet<TblTanks> TblTanks { get; set; }
+        public virtual DbSet<TblPlanes> TblPlanes { get; set; }
+        public virtual DbSet<TblShips> TblShips { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TblBcatp>().ToTable("bcatp");
@@ -38,6 +40,13 @@ namespace BCATPAngular8EF.Models
             modelBuilder.Entity<TblArmy>().ToTable("army");
             OnModelCreatingPartial(modelBuilder);
             modelBuilder.Entity<TblDefunct>().ToTable("defunct");
+            OnModelCreatingPartial(modelBuilder);
+
+            modelBuilder.Entity<TblTanks>().ToTable("Tanks");
+            OnModelCreatingPartial(modelBuilder);
+            modelBuilder.Entity<TblPlanes>().ToTable("Planes");
+            OnModelCreatingPartial(modelBuilder);
+            modelBuilder.Entity<TblShips>().ToTable("Ships");
             OnModelCreatingPartial(modelBuilder);
         }
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

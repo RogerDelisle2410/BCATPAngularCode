@@ -1,72 +1,141 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0"   >
-<form [formGroup]="FormName3" (ngSubmit)="save()" #formDir="ngForm" novalidate  >
-  <div class="container grad1">
-    <div class=row>
-      <div class="col-lg-4" style="align-content:center;border:solid; border-width:1px; border-color:black;">
-        <div class="form-group row">
-          <label class=" control-label col-md-12">Name</label>
-          <div class="col-md-10">
-            <input class="form-control" placeholder="name" type="text" id="name" formControlName="name">
-            <!--value="{{address}}"/>-->
-          </div>
-          <!--<span class="text-danger" *ngIf="name2?.invalid && formDir.submitted">
-            Name is required.
-          </span>-->
-        </div>
-        <div class="form-group row">
-          <label class="control-label col-md-12" for="Latitude">Latitude</label>
-          <div class="col-md-10">
-            <input class="form-control" placeholder="latitude" type="number" id="latitude" formControlName="latitude" value="{{latitude}}" readonly /> <!--value="{{latitude}}"-->
-          </div>
-          <!--<span class="text-danger" *ngIf="latitude.invalid && formDir.submitted">
-            Latitude is required
-          </span>-->
-        </div>
-        <div class="form-group row">
-          <label class="control-label col-md-12" for="Longitude">Longitude</label>
-          <div class="col-md-10">
-            <input class="form-control" placeholder="longitude" type="number" id="longitude" formControlName="longitude" value="{{longitude}}" readonly /> <!--value="{{longitude}}"-->
-          </div>
-          <!--<span class="text-danger" *ngIf="longitude.invalid && formDir.submitted">
-            Longitude is required
-          </span>-->
-        </div>
-        <div class="form-group row">
-          <label class="control-label col-md-12" for="Comment">Comment</label>
-          <div class="col-md-10">
-            <input class="form-control" type="text" formControlName="comment">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="control-label col-md-12" for="Info">Wikipedia</label>
-          <div class="col-md-10">
-            <input class="form-control" type="text" formControlName="wiki">
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-8">
-        <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" #search>
-        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [mapTypeId]='mapType' [fullscreenControl]='true' [mapTypeControl]='true'>
-          <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
-        </agm-map>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
+<div id="searchBar" class="container col-lg-12" style="visibility:visible;">
+  <div class="row">
+    <div class="col-lg-4"><h4>{{formname3}}</h4></div>
+    <div class="col-lg-4">
+      <input type="text" class="form-control" (keydown.enter)="$event.stopPropagation();" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" #search>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+<div *ngIf="formname3 !== 'Planes' && formname3 !== 'Tanks' && formname3 !== 'Ships'; else ShowBlockArmaments">
+  <form [formGroup]="FormName3" (ngSubmit)="save1()" #formDir1="ngForm" name="myForm1" novalidate>
 
-        <div style="height:10px;"> </div>
-        <footer style="float: right; display: block; padding-bottom:10px; ">
-          <button type="submit" class=" btn btn-primary" disabled>Save</button> <!--//Roger for Azure disabled-->
-          <button class="btn btn-danger" (click)="cancel()">Cancel</button>
-        </footer>
+    <!--{{ formDir1.form.valid }}-->
+    <div class="container grad1">
+      <div class=row>
+        <div class="col-lg-4" style="align-content:center;border:solid; border-width:1px; border-color:black;">
+          <div class="form-group row">
+            <label class=" control-label col-md-12">Name</label>
+            <div class="col-md-10">
+              <input class="form-control" placeholder="name" type="text" id="name" formControlName="name">
+            </div>
+            <span style="color:red" ng-show="myForm1.name.$dirty && myForm1.name.$invalid">
+              <span ng-show="myForm1.name.$error.required">&nbsp;&nbsp;&nbsp;&nbsp;Name is required.</span>
+            </span>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-12" for="Latitude">Latitude</label>
+            <div class="col-md-10">
+              <input class="form-control" placeholder="latitude" type="number" id="latitude" formControlName="latitude" value="{{latitude}}" />
+            </div>
+            <span style="color:red" ng-show="myForm1.latitude.$dirty && myForm1.latitude.$invalid">
+              <span ng-show="myForm1.latitude.$error.required">&nbsp;&nbsp;&nbsp;&nbsp;Latitude is required.</span>
+            </span>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-12" for="Longitude">Longitude</label>
+            <div class="col-md-10">
+              <input class="form-control" placeholder="longitude" type="number" id="longitude" formControlName="longitude" value="{{longitude}}" />
+            </div>
+            <span style="color:red" ng-show="myForm1.longitude.$dirty && myForm1.longitude.$invalid">
+              <span ng-show="myForm1.longitude.$error.required">&nbsp;&nbsp;&nbsp;&nbsp;Longitude is required.</span>
+            </span>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-12" for="Comment">Comment</label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" formControlName="comment">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-12" for="Info">Wikipedia</label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" formControlName="wiki">
+            </div>
+          </div>
+        </div>
 
+        <div class="col-lg-8">
+          <!--<input type="text" class="form-control" placeholder="Search Nearest Location" (keydown.enter)="$event.preventDefault()" autocorrect="off" autocapitalize="off" #search>-->
+
+          <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [mapTypeId]='mapType' [fullscreenControl]='true' [mapTypeControl]='true'>
+            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
+          </agm-map>
+          <div style="height:10px;"> </div>
+          <footer style="float: right; display: block; padding-bottom:10px; ">
+            <button [disabled]="formDir1.form.invalid" type="submit" class="btn btn-primary">Save</button>
+            <button class="btn btn-danger" (click)="cancel1()">Cancel</button>
+          </footer>
+        </div>
       </div>
     </div>
+  </form>
+</div>
+
+
+<ng-template #ShowBlockArmaments>
+  <div style="padding-top:-60px;">
+    <form [formGroup]="FormName4" (ngSubmit)="save2()" #formDir2="ngForm" name="myForm2" novalidate>
+      <!--{{ formDir2.form.valid }}-->
+      <div class="container grad1">
+        <div class=row>
+          <div class="col-lg-4"></div>
+          <div class="col-lg-4" style="align-content:center;border:solid; border-width:1px; border-color:black;">
+            <div class="form-group row">
+              <label class=" control-label col-md-12">Name</label>
+              <div class="col-md-10">
+                <input class="form-control" type="text" id="name" formControlName="name" required>
+              </div>
+              <span style="color:red" ng-show="myForm2.name.$dirty && myForm2.name.$invalid">
+                <span ng-show="myForm2.name.$error.required">&nbsp;&nbsp;&nbsp; Name is required.</span>
+              </span>
+            </div>
+            <div class="form-group row" hidden>
+              <label class="control-label col-md-12" for="Latitude">Latitude</label>
+              <div class="col-md-10">
+                <input class="form-control" type="number" id="latitude" formControlName="latitude" value=0 />
+              </div>
+
+            </div>
+            <div class="form-group row" hidden>
+              <label class="control-label col-md-12" for="Longitude">Longitude</label>
+              <div class="col-md-10">
+                <input class="form-control" type="number" id="longitude" formControlName="longitude" value=0 />
+              </div>
+
+            </div>
+            <div class="form-group row">
+              <label class="control-label col-md-12" for="Comment">Image Link</label>
+              <div class="col-md-10">
+                <input class="form-control" type="text" formControlName="comment">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="control-label col-md-12" for="Info">Wikipedia</label>
+              <div class="col-md-10">
+                <input class="form-control" type="text" formControlName="wiki">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div style="height:10px;"> </div>
+            <footer style="float: right; display: block; padding-bottom:10px; ">
+              <button [disabled]="formDir2.form.invalid" type="submit" class="btn btn-primary">Save</button>
+              <button class="btn btn-danger" (click)="cancel2()">Cancel</button>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
+</ng-template>
 
-  <!--<h5>Address: {{address}}</h5>
-  <div>Latitude: {{latitude}}</div>
-  <div>Longitude: {{longitude}}</div>-->
-
-  <!--<footer style="float: right; display: block;  ">
-    <button type="submit" class=" btn btn-primary">Save</button>--> <!--//Roger for Azure disabled-->
-    <!--<button class="btn btn-danger" (click)="cancel()">Cancel</button>
-  </footer>-->
-
-</form>
+<!--<script>
+  var app = angular.module('myApp', []);
+  app.controller('validateCtrl', function ($scope) {
+    $scope.name = 'John Doe';
+    $scope.latitude = 'john.doe@gmail.com';
+  });
+</script>-->
