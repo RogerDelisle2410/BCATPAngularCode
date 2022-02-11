@@ -28,19 +28,23 @@
           <input class="form-control" style="width:200px; height:25px; display:inline-block;  " type="search" #filterName name="filterName" [(ngModel)]="searchText" placeholder="Search" id="myInput" />
         </div>
       </td>
-      <td id="aButton" class="button" style=" color: blue; text-decoration: underline; margin-bottom: 20px;">
+
+      <!--<td id="aButton" class="button" style=" color: blue; text-decoration: underline; margin-bottom: 20px;">
         <h5>{{formname}}</h5>
         <a href="{{wikiLink}}" target="_blank" class="col-lg-2"> </a>
+      </td>-->
+      <td class="col-lg-2">
+        <a href="{{wikiLink}}" target="_blank"><td style="color: blue; text-decoration: underline; display: inline-block; margin-bottom: 20px; "><h5>{{formname}}</h5></td></a>
       </td>
       <td class=" col-lg-2">
         <button class="button " style="display: inline-block; margin-bottom: 20px;   " [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></button>
       </td>
       <!--<td class=" col-lg-2">
-        <button class="button " *ngIf="formname !== 'Planes' && formname !== 'Tanks' && formname !== 'Ships'" style="display: inline-block; margin-bottom: 20px;   " [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></button>
-      </td>
-      <td class="  col-lg-2">
-        <button class="button   " *ngIf="formname === 'Planes' || formname === 'Tanks' || formname === 'Ships'" style="display: inline-block; margin-bottom: 20px; " [routerLink]='["/bcatp2/add", formname]'><h5>Create</h5></button>
-      </td>-->
+    <button class="button " *ngIf="formname !== 'Planes' && formname !== 'Tanks' && formname !== 'Ships'" style="display: inline-block; margin-bottom: 20px;   " [routerLink]='["/bcatp/add", formname]'><h5>Create</h5></button>
+  </td>
+  <td class="  col-lg-2">
+    <button class="button   " *ngIf="formname === 'Planes' || formname === 'Tanks' || formname === 'Ships'" style="display: inline-block; margin-bottom: 20px; " [routerLink]='["/bcatp2/add", formname]'><h5>Create</h5></button>
+  </td>-->
     </tr>
   </table>
 </div>
