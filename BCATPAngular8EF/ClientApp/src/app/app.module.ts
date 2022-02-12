@@ -75,7 +75,7 @@ import { MatIconModule } from '@angular/material/icon';
     RouterModule.forRoot([
 
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'fetch-home', component: HomeComponent },
+      /*{ path: 'fetch-home', component: HomeComponent },*/
 
       { path: 'fetch-data/:formname/:formname2', component: FetchDataComponent },
       { path: 'fetch-navy/:formname/:formname2', component: FetchDataComponent },

@@ -29,13 +29,13 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class FetchDataComponent implements OnInit {
-  comparablePartyHeadersTrimmed = [
-    'Name',
-    'Info',
-    'Latitude',
-    'Longitude',
-    'Edit - Del - Map',
-  ];
+  //comparablePartyHeadersTrimmed = [
+  //  'Name',
+  //  'Info',
+  //  'Latitude',
+  //  'Longitude',
+  //  'Edit - Del - Map',
+  //];
   loading$: Observable<Boolean>;
   error$: Observable<Error>;
 

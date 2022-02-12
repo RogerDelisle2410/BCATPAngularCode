@@ -79,7 +79,7 @@ var AppModule = /** @class */ (function () {
                 }),
                 router_1.RouterModule.forRoot([
                     { path: '', component: home_component_1.HomeComponent, pathMatch: 'full' },
-                    { path: 'fetch-home', component: home_component_1.HomeComponent },
+                    /*{ path: 'fetch-home', component: HomeComponent },*/
                     { path: 'fetch-data/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
                     { path: 'fetch-navy/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
                     { path: 'fetch-dewline/:formname/:formname2', component: fetch_data_component_1.FetchDataComponent },
