@@ -94,4 +94,4 @@ export class Ships {
   latitude: number | 6;
   comment: string;
   wiki: string;
-}
+} 

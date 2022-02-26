@@ -20,5 +20,19 @@
         public string Comment { get; set; }
         public string Wiki { get; set; }
     }
+    //public class TblAllFormat2
+    //{
+    //    public int Id { get; set; }
+    //    public string Name { get; set; }
+    //    public string wiki { get; set; }
+    //    public string wiki2 { get; set; }
+    //    public string wiki3 { get; set; }
+    //    public string comment { get; set; }
+    //    public string image1 { get; set; }
+    //    public string image2 { get; set; }
+    //    public string image3 { get; set; }
+    //    public int longitude { get; set; }
+    //    public int latitude { get; set; }
+    //}
 
 }
