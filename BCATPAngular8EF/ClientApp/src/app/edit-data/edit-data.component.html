@@ -3,7 +3,7 @@
 <form [formGroup]="FormName" (ngSubmit)="save()" #formDir="ngForm" novalidate>
   <div class="container grad1" *ngIf="formname !== 'Planes' && formname !== 'Tanks' && formname !== 'Ships';">
     <div class=row>
-      <div class="col-lg-4" style="align-content:center;border:solid; border-width:1px; border-color:black;">
+      <div class="col-lg-4 divName">
         <div class="form-group row">
           <label class=" control-label col-md-12">Name</label>
           <div class="col-md-10">
@@ -51,7 +51,7 @@
         </agm-map>
 
         <div style="height:10px;"> </div>
-        <footer style="float: right; display: block; padding-bottom:10px;">
+        <footer>
           <button type="submit" class=" btn btn-primary">Save</button>
           <!--//Roger for Azure disabled-->
           <button class="btn btn-danger" (click)="cancel()">Cancel</button>
@@ -65,7 +65,7 @@
   <div class="container grad1" *ngIf="formname === 'Planes' || formname === 'Tanks' || formname === 'Ships';">
 
     <div class=row>
-      <div class="col-lg-4" style="align-content:center;border:solid; border-width:1px; border-color:black;">
+      <div class="col-lg-4 divName">
         <div class="form-group row">
           <label class=" control-label col-md-12">Name</label>
           <div class="col-md-10">
@@ -90,10 +90,10 @@
         </div>
       </div>
       <div class="col-lg-8">
-        <img class="img-fluid" [src]='cmt3' style="height:400px; width:600px  ">
+        <img class="img-fluid" [src]='cmt3' >
 
         <div style="height:10px;"> </div>
-        <footer style="float: right; display: block; padding-bottom:10px;">
+        <footer>
           <button type="submit" class=" btn btn-primary">Save</button>
           <!--//Roger for Azure disabled-->
           <button class="btn btn-danger" (click)="cancel()">Cancel</button>

@@ -157,6 +157,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="BCATPDB2.db" />
     <None Remove="ClientApp\dist\assets\img\CanadianFlag.png" />
     <None Remove="ClientApp\dist\main-es2015.e8ce622e531408f8d151.js" />
     <None Remove="ClientApp\dist\main-es2015.e8ce622e531408f8d151.js.LICENSE.txt" />
@@ -269,6 +270,12 @@
     <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\planes.reducer.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\ships.reducer.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\state\reducers\tanks.reducer.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="BCATPDB2.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

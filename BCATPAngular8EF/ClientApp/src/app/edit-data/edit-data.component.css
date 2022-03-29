@@ -31,3 +31,21 @@ agm-map {
   height: auto;
   /* min-width: 300px;*/
 }
+
+.divName {
+  align-content: center;
+  border: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+footer {
+  float: right;
+  display: block;
+  padding-bottom: 10px;
+}
+
+img {
+  height: 400px;
+  width: 600px;
+}

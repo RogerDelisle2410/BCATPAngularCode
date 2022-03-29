@@ -21,6 +21,10 @@ table {
   margin-right: 30px;*/
   font-size: 14px;
   text-overflow: ellipsis;
+  width: 100%;
+  margin-left: 15px;
+  text-align: left !important;
+  height: auto;
   /*  line-height:5px;*/
   /* border-style:solid;*/
 }
@@ -36,4 +40,35 @@ button {
 
 .inner {
   display: inline-block;
+}
+div {
+  height: auto;
+}
+td {
+  width: 27%;
+}
+
+a {
+   color: blue;
+   text-decoration: underline;
+   padding-left: 20px;
+   word-wrap: break-word;
+}
+.td1 {
+  width: 27%;
+  padding-left: 30px;
+  word-wrap: break-word
+}
+.td2 {
+  width: 32%;
+  font-size: 12px;
+  word-wrap: break-word
+}
+.td3 {
+  width: 10%;
+  word-wrap: break-word;
+}
+td4 {
+  width: 10%;
+  word-wrap: break-word;
 }

@@ -31,4 +31,122 @@ btn {
   /* min-width: 300px;*/
 }
 
+.img1 {
+  height: auto;
+  width: auto;
+  position: center;
+}
+
+.img2 {
+  width: 120px;
+  height: 85px;
+  float: right;
+}
+
+.button1 {
+  float: right;
+  margin-top: 5px;
+}
+
+.button2 {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.button3 {
+  margin-top: 30px;
+  word-wrap: break-word;
+  display: inline-block;
+  color: red;
+}
+
+.button4 {
+  margin-top: 30px;
+  word-wrap: break-word;
+  display: inline-block;
+  color: green;
+}
+
+.button5 {
+  margin-top: -13px;
+  margin-bottom: -15px;
+  word-wrap: break-word;
+  display: inline-block;
+  color: blue;
+}
+
+.button6 {
+  margin-top: -13px;
+  margin-bottom: -15px;
+  word-wrap: break-word;
+  display: inline-block;
+  color: red;
+}
+
+.button7 {
+  margin-top: -13px;
+  margin-bottom: -15px;
+  word-wrap: break-word;
+  display: inline-block;
+  color: green;
+}
+
+input {
+  width: 200px;
+  height: 25px;
+  display: inline-block;
+}
+
+.footer1 {
+  float: right;
+  display: block;
+  height: 30px;
+}
+
+.h5a {
+  color: blue;
+  text-decoration: underline;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.href1 {
+  color: blue;
+  text-decoration: underline;
+  padding-left: 20px;
+  word-wrap: break-word
+}
+
+.href2 {
+  color: blue;
+  text-decoration: underline;
+  word-wrap: break-word;
+}
+
+.td1 {
+  width: 25%;
+  padding-left: 30px;
+  word-wrap: break-word;
+  font-size: 16px;
+}
+
+.td2 {
+  font-size: 16px;
+  text-align: left;
+  width: 40%;
+  word-wrap: break-word;
+}
+
+.td3 {
+  font-size: 16px;
+  width: 10%;
+  word-wrap: break-word;
+}
+
+.td4 {
+  font-size: 16px;
+  width: 10%;
+  word-wrap: break-word;
+}
+
  
