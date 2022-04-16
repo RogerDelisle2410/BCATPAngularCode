@@ -66,7 +66,7 @@ var AppModule = /** @class */ (function () {
                 ng2_search_filter_1.Ng2SearchPipeModule,
                 icon_1.MatIconModule,
                 core_2.AgmCoreModule.forRoot({
-                    apiKey: 'AIzaSyC3hPcF2p9InbZv2GXLy9bAMlfiNvD8nyI',
+                    apiKey: 'google key',
                     libraries: ['places', 'geometry']
                 }),
                 forms_1.ReactiveFormsModule,
