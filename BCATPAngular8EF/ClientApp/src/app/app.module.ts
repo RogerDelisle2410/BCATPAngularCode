@@ -58,7 +58,7 @@ import { MatIconModule } from '@angular/material/icon';
     Ng2SearchPipeModule,
     MatIconModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC3hPcF2p9InbZv2GXLy9bAMlfiNvD8nyI',
+      apiKey: 'google key',
       libraries: ['places', 'geometry']
     }),
     ReactiveFormsModule,
